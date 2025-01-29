@@ -17,7 +17,6 @@ header {
     }
 
    .prenav {
-        background-color: var(--col-green-400);
         font-size: var(--fs-350);
         width: 100%;
         a {
@@ -32,13 +31,14 @@ header {
    }
 
    #navbar {
-    padding-block: 1rem;
-    background-color: var(--col-grey-400);
+    padding-block: 66px;
+    background-color: rgba(0, 0, 0, 0.5);
     a.nav-link {
         font-family: var(--ff-body);
-        // text-transform: uppercase;
+        text-transform: uppercase;
         font-weight: var(--fw-700);
-        font-size: var(--fs-350);
+        font-size: var(--fs-100);
+        color: var(--col-white);
     }
    }
 

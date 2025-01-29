@@ -59,17 +59,23 @@ function contact_email() {
 add_shortcode('contact_email_icon', 'contact_email_icon');
 function contact_email_icon() {
     if (get_field('contact_email', 'options')) {
-        return '<a href="mailto:' . get_field('contact_email', 'options') . '"><i class="fas fa-envelope"></i> ' . get_field('contact_email', 'options') . '</a>';
+        return '<a href="mailto:' . get_field('contact_email', 'options') . '"><i class="fas fa-envelope"></i></a>';
     }
     return;
 }
 
 
 add_shortcode('social_in_icon', function () {
-    if (get_field('linkedin_url', 'options') ?? null) {
-        return '<a href="' . get_field('linkedin_url', 'options') . '" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>';
-    }
-    return;
+     $socials = get_field('socials', 'options'); // Get the 'socials' group
+     $linkedin_url = isset($socials['linkedin_url']) ? $socials['linkedin_url'] : null; // Retrieve the 'linkedin_url' subfield
+ 
+     // Check if the URL exists
+     if ($linkedin_url) {
+         return '<a href="' . esc_url($linkedin_url) . '" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>';
+     }
+ 
+     // Return nothing if no URL is set
+     return '';
 });
 
 add_shortcode('social_icons', 'social_icons');
@@ -450,4 +456,13 @@ function pluralise($quantity, $singular, $plural=null)
             return $singular.'s';
     }
 }
+
+function replace_r_tag($option, $content) {
+    global $post;
+    $html = '';
+    $html .= '<span class="replace-text">'.$content.'</span>';
+    
+	return $html;
+}
+add_shortcode('Replace_R', 'replace_r_tag');
 ?>

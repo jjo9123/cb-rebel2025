@@ -14,12 +14,24 @@ body {
 }
 
 main {
-    margin-top: var(--h-top-mobile);
+    margin-top: 0;
     @media (min-width:992px) {
-        margin-top: var(--h-top);
+        margin-top: 0;
     }
 }
 
+.white {
+    background-color: var(--col-white);
+}
+.gradient-1 {
+    background: linear-gradient(45deg, #454495, #E44398);
+
+}
+.gradient-2 {
+    background: linear-gradient(45deg, #E44398, #454495);
+
+}
+.main
 .container-xl .container-xl {
     padding-inline: 0;
 }
@@ -134,3 +146,120 @@ for (; i < all.length; i++) {
 // 	font-size: $min-value; // Fallback for older browsers
 // 	font-size: clamp(#{if($min-value > $max-value, $max-value, $min-value)}, #{$calc-value}, #{if($min-value > $max-value, $min-value, $max-value)});
 // }
+
+//offset first <section> in main to offset nav 
+main > section:first-of-type {
+    padding-top: 160px!important;
+}
+.replace-text {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 200px;
+    align-items: center; // Ensures all elements inside align properly
+    color: var(--col-highlight);
+  
+    span {
+      i {
+        position: relative;
+        padding-left: 3rem;
+        display: inline-block;
+        line-height: 1; // Prevents unnecessary extra spacing
+  
+        strong {
+          opacity: 0;
+          pointer-events: none;
+        }
+  
+        &::before {
+          position: absolute;
+          width: 0.9em; // Match the text size dynamically
+          height: 0.9em; // Keep proportions
+          background-image: url(../img/R-word.svg);
+          content: "";
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: contain; // Ensures it scales properly
+          left: 0;
+          top: 50%; // Centers vertically
+          transform: translateY(-50%) scale(0.9); // Fine-tune size
+        }
+      }
+    }
+  }
+  .slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: 2px solid var(--col-white);
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.slick-prev {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
+}
+
+.slick-prev:before, .slick-next:before {
+    font-size: 18px;
+    color: var(--col-white);
+    content: '';
+}
+
+.slick-prev {
+    left: 10px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+}
+
+.slick-next {
+    right: 10px; /* Adjust as needed */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+}
+
+.slick-prev:before, .slick-next:before,
+.slick-dots li button:before {
+    content: '';
+}
+.slick-dots {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.slick-dots li button {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background-color: var(--col-white);
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slick-dots li.slick-active button {
+    background-color: transparent;
+    border: 2px solid var(--col-white);
+}
+  

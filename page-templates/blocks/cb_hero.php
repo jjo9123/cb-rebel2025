@@ -1,7 +1,7 @@
 <?php
 $heroHeight = get_field('background') ? '' : '';
 ?>
-<section class="hero <?=$heroHeight?> col-black pt-4 pb-3 mb-5">
+<section class="hero <?=$heroHeight?> pt-4 pb-3 mb-5">
     <div class="container-xl h-100">
         <div class="row h-100">
             <div class="col-lg-10 d-flex flex-column pt-4 pt-lg-0 align-items-center align-items-md-start justify-content-start justify-content-md-center">
@@ -33,11 +33,4 @@ $heroHeight = get_field('background') ? '' : '';
             </div>
         </div>
     </div>
-</section>
-<section class="breadcrumbs pt-4 container-xl">
-    <?php
-    if (function_exists('yoast_breadcrumb')) {
-        yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
-    }
-    ?>
 </section>
