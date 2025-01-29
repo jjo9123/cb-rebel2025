@@ -1,0 +1,110 @@
+{
+    "key": "group_5e87498dde2f9",
+    "title": "CPT Careers",
+    "fields": [
+        {
+            "key": "field_5e8749b40689c",
+            "label": "Job Description",
+            "name": "description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "ABC Company Inc. seeks a full-time mid-level software engineer to develop in-house tools.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_63ca9f5071202",
+            "label": "Salary",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0,
+            "acfe_field_group_condition": 0
+        },
+        {
+            "key": "field_621dffd0ac5a0",
+            "label": "Minimum Salary",
+            "name": "minimum_salary",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "£",
+            "append": "",
+            "acfe_field_group_condition": 0
+        },
+        {
+            "key": "field_621dffdbac5a1",
+            "label": "Maximum Salary",
+            "name": "maximum_salary",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "£",
+            "append": "",
+            "acfe_field_group_condition": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "careers"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1714042651
+}

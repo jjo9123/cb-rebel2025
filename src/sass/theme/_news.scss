@@ -1,0 +1,105 @@
+.related {
+    &__card {
+        text-decoration: none;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        &:hover {
+            .related__image {
+                transform: scale(1.05);
+            }
+        }
+    }
+    &__image_container {
+        overflow: hidden;   
+    }
+    &__image {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 300ms ease;
+    }
+    &__content {
+        background-color: white;
+        color: var(--col-green-400);
+        padding: 0.5rem;
+        min-height: 4rem;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        height: 100%;
+    }
+    &__title {
+        font-size: var(--fs-500);
+    }
+    &__date {
+        color: var(--col-orange-400);
+        font-size: var(--fs-300);
+    }
+}
+
+
+.blog {
+    &__image {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 300ms ease;
+        margin-bottom: 0.5rem;
+    }
+    &__content > .container-xl {
+        padding-inline: 0;
+    }
+}
+
+.latest_news {
+    &__card {
+        display: grid;
+        gap: 0.5rem;
+        grid-template-rows: auto 1fr 1.2rem;
+        height: 100%;
+        border-radius: 1rem;
+        padding: 1rem;
+        box-shadow: var(--shadow-out);
+        transition: box-shadow var(--transition), transform var(--transition);
+        img {
+            display: block;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        &:hover {
+            box-shadow: var(--shadow-in);
+            transform: translateY(2px);
+        }
+    }
+}
+
+.news_row {
+
+    .news__link {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 180px auto;
+        width: 100%;
+        margin-bottom: 1rem;
+        &:hover {
+            .news__image {
+                scale: 1.1;
+            }
+        }
+    }
+    .news__image_container {
+        overflow: hidden;
+    }
+    .news__image {
+        object-fit: cover;
+        aspect-ratio: 4 / 3;
+        width: 100%;
+        transition: scale var(--transition);
+    }
+}
