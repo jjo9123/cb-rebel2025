@@ -1,0 +1,39 @@
+.hero-slide {
+    background-color: var(--col-black);
+    min-height: 600px;
+    padding-bottom: 80px!important;
+    padding-top: 60px!important;
+    color: var(--col-white);
+    margin: 0 auto;
+    margin-bottom: 0;
+    &.hero--short {
+        height: auto;
+        padding-bottom: 1rem;
+    }
+    // background-size: min(80vw,490px) auto;
+    // background-repeat: no-repeat;
+    // background-position: 90% 90%;
+    position: relative;
+    isolation: isolate;
+    overflow: clip;
+    h1 {
+        font-size: var(--fs-800);
+    }
+    &__bg {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+
+        left: 1rem;
+        margin-inline: auto;
+
+        @media (min-width:768px) {
+            left: unset;
+        }
+
+        width: min(80vw, 490px);
+        z-index: -1;
+        max-height: 200px;
+        max-width: max-content;
+    }
+}

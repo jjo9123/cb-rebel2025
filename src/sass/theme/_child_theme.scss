@@ -186,51 +186,43 @@ main > section:first-of-type {
       }
     }
   }
-  .slick-prev, .slick-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: transparent;
-    border: 2px solid var(--col-white);
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    cursor: pointer;
-}
+  
+        /* Add your custom CSS here */
+        .slick-prev, .slick-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent;
+            border: 2px solid var(--col-white);
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            cursor: pointer;
+        }
 
-.slick-prev {
-    left: 10px;
-}
+        .slick-prev {
+            left: 10px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 50%;
+        }
 
-.slick-next {
-    right: 10px;
-}
+        .slick-next {
+            right: 10px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 50%;
+        }
 
-.slick-prev:before, .slick-next:before {
-    font-size: 18px;
-    color: var(--col-white);
-    content: '';
-}
-
-.slick-prev {
-    left: 10px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 50%;
-}
-
-.slick-next {
-    right: 10px; /* Adjust as needed */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 50%;
-}
+        .slick-prev:before, .slick-next:before {
+            content: '';
+        }
 
 .slick-prev:before, .slick-next:before,
 .slick-dots li button:before {
@@ -242,14 +234,16 @@ main > section:first-of-type {
     display: flex;
     justify-content: center;
     gap: 10px;
+    z-index: 10;
+    bottom: 80px;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
 .slick-dots li button {
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
     border: none;
     background-color: var(--col-white);
     border-radius: 50%;
@@ -262,4 +256,3 @@ main > section:first-of-type {
     background-color: transparent;
     border: 2px solid var(--col-white);
 }
-  

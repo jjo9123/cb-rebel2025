@@ -1,22 +1,18 @@
 <?php
-$hero_slides = get_field('hero_slides'); // Repeater field containing cloned Hero fields
+$hero_slides = get_field('feat_slides'); // Repeater field containing cloned Hero fields
 
 ?>
 
-<section class="hero-slider" style="position: relative;">
-    <div class="hero-slider__wrapper">
+<section class="feat-slider" style="position: relative;">
+    <div class="feat-slider__wrapper">
         <?php if ($hero_slides): ?>
             <?php foreach ($hero_slides as $index => $slide): ?>
-                <div class="hero-slide col-black pt-4 pb-3 mb-5" style="background-image: url('<?= wp_get_attachment_url($slide['background']); ?>');">
+                <div class="feat-slide col-black pt-4 pb-3 mb-5" style="background-image: url('<?= wp_get_attachment_url($slide['background']); ?>');">
                     <div class="container-xl h-100">
                         <div class="row h-100">
                             <div class="col-lg-10 d-flex flex-column pt-4 pt-lg-0 align-items-center align-items-md-start justify-content-start justify-content-md-center">
-                                
-                                <?php if ($index === 0): ?>
-                                    <h1 data-aos="fade-right" class="text-center text-md-start"><?= $slide['title'] ?></h1>
-                                <?php else: ?>
-                                    <h2 data-aos="fade-right" class="text-center text-md-start"><?= $slide['title'] ?></h2>
-                                <?php endif; ?>
+                                                              
+                                <h2 data-aos="fade-right" class="text-center text-md-start"><?= $slide['title'] ?></h2>
                                 
                                 <?php if (!empty($slide['content'])): ?>
                                     <div class="fs-500 fw-600" data-aos="fade-right" data-aos-delay="100"><?= $slide['content'] ?></div>
@@ -46,17 +42,15 @@ $hero_slides = get_field('hero_slides'); // Repeater field containing cloned Her
 
 
 
-
-
 <!-- Slick Slider Initialization -->
 <?php
 add_action('wp_footer', function () {
 ?>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.hero-slider__wrapper').forEach(function (slickWrapper) {
-            var slickPrev = slickWrapper.closest('.hero-slider').querySelector('.slick-prev');
-            var slickNext = slickWrapper.closest('.hero-slider').querySelector('.slick-next');
+        document.querySelectorAll('.feat-slider__wrapper').forEach(function (slickWrapper) {
+            var slickPrev = slickWrapper.closest('.feat-slider').querySelector('.slick-prev');
+            var slickNext = slickWrapper.closest('.feat-slider').querySelector('.slick-next');
 
             if (slickPrev && slickNext) {
                 $(slickWrapper).slick({

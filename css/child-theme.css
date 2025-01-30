@@ -21252,7 +21252,7 @@ html {
 
 body {
   font-family: var(--ff-body);
-  font-weight: var(--fw-400);
+  font-weight: var(--fw-300);
   font-size: var(--fs-200);
 }
 
@@ -21725,6 +21725,101 @@ footer .cb:hover {
   }
 }
 
+.hero-slide {
+  background-color: var(--col-black);
+  min-height: 600px;
+  padding-bottom: 80px !important;
+  padding-top: 60px !important;
+  color: var(--col-white);
+  margin: 0 auto;
+  margin-bottom: 0;
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+.hero-slide.hero--short {
+  height: auto;
+  padding-bottom: 1rem;
+}
+.hero-slide h1, .hero-slide .h1 {
+  font-size: var(--fs-800);
+}
+.hero-slide__bg {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  left: 1rem;
+  margin-inline: auto;
+  width: min(80vw, 490px);
+  z-index: -1;
+  max-height: 200px;
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+@media (min-width: 768px) {
+  .hero-slide__bg {
+    left: unset;
+  }
+}
+
+.feat-slider {
+  width: 90%;
+  margin: auto;
+}
+.feat-slider .slick-prev {
+  left: -50px;
+}
+.feat-slider .slick-next {
+  right: -50px;
+}
+.feat-slider .slick-dots {
+  left: 45px;
+  justify-content: flex-start;
+  gap: 4px;
+}
+.feat-slider .slick-dots li {
+  margin: 0 2px;
+}
+.feat-slider .feat-slide {
+  background-color: var(--col-black);
+  border-radius: 30px;
+  min-height: 600px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 80px !important;
+  padding-top: 60px !important;
+  color: var(--col-white);
+  margin: 0 auto;
+  margin-bottom: 0;
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+.feat-slider .feat-slide.hero--short {
+  height: auto;
+  padding-bottom: 1rem;
+}
+.feat-slider .feat-slide h1, .feat-slider .feat-slide .h1 {
+  font-size: var(--fs-800);
+}
+.feat-slider .feat-slide__bg {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  left: 1rem;
+  margin-inline: auto;
+  width: min(80vw, 490px);
+  z-index: -1;
+  max-height: 200px;
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+@media (min-width: 768px) {
+  .feat-slider .feat-slide__bg {
+    left: unset;
+  }
+}
+
 .four_cards h3, .four_cards .h3 {
   position: relative;
   padding-bottom: 1rem;
@@ -22188,6 +22283,7 @@ main > section:first-of-type {
   transform: translateY(-50%) scale(0.9);
 }
 
+/* Add your custom CSS here */
 .slick-prev, .slick-next {
   position: absolute;
   top: 50%;
@@ -22206,20 +22302,6 @@ main > section:first-of-type {
 
 .slick-prev {
   left: 10px;
-}
-
-.slick-next {
-  right: 10px;
-}
-
-.slick-prev:before, .slick-next:before {
-  font-size: 18px;
-  color: var(--col-white);
-  content: "";
-}
-
-.slick-prev {
-  left: 10px;
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>');
   background-repeat: no-repeat;
   background-position: center;
@@ -22227,11 +22309,15 @@ main > section:first-of-type {
 }
 
 .slick-next {
-  right: 10px; /* Adjust as needed */
+  right: 10px;
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 50%;
+}
+
+.slick-prev:before, .slick-next:before {
+  content: "";
 }
 
 .slick-prev:before, .slick-next:before,
@@ -22245,14 +22331,16 @@ main > section:first-of-type {
   display: flex;
   justify-content: center;
   gap: 10px;
+  z-index: 10;
+  bottom: 80px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .slick-dots li button {
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
   border: none;
   background-color: var(--col-white);
   border-radius: 50%;
