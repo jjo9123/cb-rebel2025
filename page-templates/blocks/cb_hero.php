@@ -1,7 +1,10 @@
 <?php
-$heroHeight = get_field('background') ? '' : '';
+$background = get_field('background');
+$background_url = $background ? wp_get_attachment_image_url($background, 'full') : '';
 ?>
-<section class="hero <?=$heroHeight?> pt-4 pb-3 mb-5">
+
+<section class="hero pt-4 pb-3 mb-5" 
+    style="background-image: url('<?= esc_url($background_url) ?>'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="container-xl h-100">
         <div class="row h-100">
             <div class="col-lg-10 d-flex flex-column pt-4 pt-lg-0 align-items-center align-items-md-start justify-content-start justify-content-md-center">
@@ -20,14 +23,6 @@ $heroHeight = get_field('background') ? '' : '';
                     ?>
                 <a class="btn btn-primary mt-4 align-self-center align-self-md-start" href="<?=$cta['url']?>" target="<?=$cta['target']?>" data-aos="fade-right" data-aos-delay="<?=$d?>"><?=$cta['title']?></a>
                     <?php
-                }
-                ?>
-            </div>
-            <div class="col-lg-4 position-relative">
-                <?php
-                $img = wp_get_attachment_image(get_field('background'),'full',false,array('class' => 'hero__bg', 'data-aos' => 'fade-left')) ?? null;
-                if ($img) {
-                    echo $img;
                 }
                 ?>
             </div>

@@ -1,60 +1,67 @@
-.feat-slider {
+.numbered-cols {
     width: calc(100% - 10%);
     margin: auto;
-    .slick-prev {
-        left: -50px;
-        }
-    .slick-next {
-        right: -50px;
-        }
-    .slick-dots {
-        left: 45px;
-        justify-content: flex-start;
-        gap: 4px;
-        li {
-            margin: 0 2px;
-        }
+    padding-top: 100px;
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
-    .feat-slide {
-        background-color: var(--col-black);
-        border-radius: 30px;
-        min-height: 600px;
-        padding-left: 40px;
-        padding-right: 40px;
-        padding-bottom: 80px!important;
-        padding-top: 60px!important;
-        color: var(--col-white);
-        margin: 0 auto;
-        margin-bottom: 0;
-        &.hero--short {
-            height: auto;
-            padding-bottom: 1rem;
-        }
-        // background-size: min(80vw,490px) auto;
-        // background-repeat: no-repeat;
-        // background-position: 90% 90%;
+    .card-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+    .card {
+        background: linear-gradient(to bottom, var(--col-dark), rgba(102, 51, 153, 0));
+        color: white;
+        text-align: center;
+        border: none;
+        border-radius: 20px;
+        width: 250px;
+        padding-top: 60px;
         position: relative;
-        isolation: isolate;
-        overflow: clip;
-        h1 {
-            font-size: var(--fs-800);
-        }
-        &__bg {
-            position: absolute;
-            bottom: 1rem;
-            right: 1rem;
-
-            left: 1rem;
-            margin-inline: auto;
-
-            @media (min-width:768px) {
-                left: unset;
-            }
-
-            width: min(80vw, 490px);
-            z-index: -1;
-            max-height: 200px;
-            max-width: max-content;
-        }
+    }
+    .card-number {
+        font-size: 15rem;
+        font-weight: bold;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        width: 250px;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: -130px;
+        left: 50%;
+        transform: translateX(-50%);
+        overflow: hidden;
+        text-align: center;
+        color: transparent; /* Hide the default text */
+    }
+    
+    .card-number::after {
+        content: attr(data-number); /* Displays the number dynamically */
+        font-size: 15rem;
+        font-weight: bold;
+        position: absolute;
+        color: transparent;
+        background: linear-gradient(to bottom, #663399, rgba(102, 51, 153, 0)); /* Matches the card */
+        -webkit-background-clip: text;
+        background-clip: text;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    
+    .card-text {
+        font-size: 1.2rem;
+        padding-top: 100px;
+        text-align: left;
+    }
+    .highlight {
+        font-weight: bold;
     }
 }
