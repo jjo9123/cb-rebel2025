@@ -22006,6 +22006,71 @@ footer .cb:hover {
   font-weight: var(--fw-700);
 }
 
+.numbered-cols {
+  width: 90%;
+  margin: auto;
+  padding-top: 100px;
+}
+.numbered-cols .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.numbered-cols .card-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.numbered-cols .card {
+  background: linear-gradient(to bottom, var(--col-dark), rgba(102, 51, 153, 0));
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+  width: 250px;
+  padding-top: 60px;
+  position: relative;
+}
+.numbered-cols .card-number {
+  font-size: 15rem;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -130px;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  text-align: center;
+  color: transparent; /* Hide the default text */
+}
+.numbered-cols .card-number::after {
+  content: attr(data-number); /* Displays the number dynamically */
+  font-size: 15rem;
+  font-weight: bold;
+  position: absolute;
+  color: transparent;
+  background: linear-gradient(to bottom, #663399, rgba(102, 51, 153, 0)); /* Matches the card */
+  -webkit-background-clip: text;
+  background-clip: text;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.numbered-cols .card-text {
+  font-size: 1.2rem;
+  padding-top: 100px;
+  text-align: left;
+}
+.numbered-cols .highlight {
+  font-weight: bold;
+}
+
 .latest_cs__card {
   display: grid;
   gap: 0.5rem;
