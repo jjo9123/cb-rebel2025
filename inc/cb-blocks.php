@@ -21,6 +21,15 @@ function acf_blocks()
             'supports' => array('mode' => false),
         ));
         acf_register_block_type(array(
+            'name'				=> 'cb_hero_slider',
+            'title'				=> __('CB Hero Slider'),
+            'category'			=> 'layout',
+            'icon'				=> 'cover-image',
+            'render_template'	=> 'page-templates/blocks/cb_hero_slider.php',
+            'mode'	=> 'edit',
+            'supports' => array('mode' => false),
+        ));
+        acf_register_block_type(array(
             'name'				=> 'cb_two_col_text',
             'title'				=> __('CB Two Col Text'),
             'category'			=> 'layout',
@@ -143,6 +152,15 @@ function acf_blocks()
             'category'			=> 'layout',
             'icon'				=> 'cover-image',
             'render_template'	=> 'page-templates/blocks/cb_faq.php',
+            'mode'	=> 'edit',
+            'supports' => array('mode' => false, 'anchor' => true),
+        ));
+        acf_register_block_type(array(
+            'name'				=> 'cb_feat_slider',
+            'title'				=> __('CB Feature Slider'),
+            'category'			=> 'layout',
+            'icon'				=> 'cover-image',
+            'render_template'	=> 'page-templates/blocks/cb_feat_slider.php',
             'mode'	=> 'edit',
             'supports' => array('mode' => false, 'anchor' => true),
         ));

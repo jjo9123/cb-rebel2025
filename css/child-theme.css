@@ -13,6 +13,7 @@
   --fw-400: 400;
   --fw-900: 900;
   --fs-100: 14px;
+  --fs-150: 16px;
   --fs-200: 18px;
   --fs-300: 28px;
   --fs-400: 30px;
@@ -21251,7 +21252,7 @@ html {
 
 body {
   font-family: var(--ff-body);
-  font-weight: var(--fw-400);
+  font-weight: var(--fw-300);
   font-size: var(--fs-200);
 }
 
@@ -21415,7 +21416,6 @@ header.hidden #wrapper-navbar {
 }
 .header .prenav,
 header .prenav {
-  background-color: var(--col-green-400);
   font-size: var(--fs-350);
   width: 100%;
   padding-block: 0.5rem;
@@ -21432,14 +21432,16 @@ header .prenav .container-xl {
 }
 .header #navbar,
 header #navbar {
-  padding-block: 1rem;
-  background-color: var(--col-grey-400);
+  padding-block: 66px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .header #navbar a.nav-link,
 header #navbar a.nav-link {
   font-family: var(--ff-body);
+  text-transform: uppercase;
   font-weight: var(--fw-700);
-  font-size: var(--fs-350);
+  font-size: var(--fs-100);
+  color: var(--col-white);
 }
 @media (max-width: 768px) {
   .header .dropdown-item,
@@ -21691,8 +21693,9 @@ footer .cb:hover {
 }
 .hero {
   background-color: var(--col-black);
-  height: 400px;
-  color: var(--col-green-400);
+  min-height: 600px;
+  padding-bottom: 60px !important;
+  color: var(--col-white);
   position: relative;
   isolation: isolate;
   overflow: clip;
@@ -21718,6 +21721,101 @@ footer .cb:hover {
 }
 @media (min-width: 768px) {
   .hero__bg {
+    left: unset;
+  }
+}
+
+.hero-slide {
+  background-color: var(--col-black);
+  min-height: 600px;
+  padding-bottom: 80px !important;
+  padding-top: 60px !important;
+  color: var(--col-white);
+  margin: 0 auto;
+  margin-bottom: 0;
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+.hero-slide.hero--short {
+  height: auto;
+  padding-bottom: 1rem;
+}
+.hero-slide h1, .hero-slide .h1 {
+  font-size: var(--fs-800);
+}
+.hero-slide__bg {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  left: 1rem;
+  margin-inline: auto;
+  width: min(80vw, 490px);
+  z-index: -1;
+  max-height: 200px;
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+@media (min-width: 768px) {
+  .hero-slide__bg {
+    left: unset;
+  }
+}
+
+.feat-slider {
+  width: 90%;
+  margin: auto;
+}
+.feat-slider .slick-prev {
+  left: -50px;
+}
+.feat-slider .slick-next {
+  right: -50px;
+}
+.feat-slider .slick-dots {
+  left: 45px;
+  justify-content: flex-start;
+  gap: 4px;
+}
+.feat-slider .slick-dots li {
+  margin: 0 2px;
+}
+.feat-slider .feat-slide {
+  background-color: var(--col-black);
+  border-radius: 30px;
+  min-height: 600px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 80px !important;
+  padding-top: 60px !important;
+  color: var(--col-white);
+  margin: 0 auto;
+  margin-bottom: 0;
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+.feat-slider .feat-slide.hero--short {
+  height: auto;
+  padding-bottom: 1rem;
+}
+.feat-slider .feat-slide h1, .feat-slider .feat-slide .h1 {
+  font-size: var(--fs-800);
+}
+.feat-slider .feat-slide__bg {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  left: 1rem;
+  margin-inline: auto;
+  width: min(80vw, 490px);
+  z-index: -1;
+  max-height: 200px;
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+@media (min-width: 768px) {
+  .feat-slider .feat-slide__bg {
     left: unset;
   }
 }
@@ -22027,15 +22125,27 @@ body {
 }
 
 main {
-  margin-top: var(--h-top-mobile);
+  margin-top: 0;
 }
 @media (min-width: 992px) {
   main {
-    margin-top: var(--h-top);
+    margin-top: 0;
   }
 }
 
-.container-xl .container-xl {
+.white {
+  background-color: var(--col-white);
+}
+
+.gradient-1 {
+  background: linear-gradient(45deg, #454495, #E44398);
+}
+
+.gradient-2 {
+  background: linear-gradient(45deg, #E44398, #454495);
+}
+
+.main .container-xl .container-xl {
   padding-inline: 0;
 }
 
@@ -22138,6 +22248,112 @@ for (; i < all.length; i++) {
     }
 }
 */
+main > section:first-of-type {
+  padding-top: 160px !important;
+}
+
+.replace-text {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 200px;
+  align-items: center;
+  color: var(--col-highlight);
+}
+.replace-text span i {
+  position: relative;
+  padding-left: 3rem;
+  display: inline-block;
+  line-height: 1;
+}
+.replace-text span i strong {
+  opacity: 0;
+  pointer-events: none;
+}
+.replace-text span i::before {
+  position: absolute;
+  width: 0.9em;
+  height: 0.9em;
+  background-image: url(../img/R-word.svg);
+  content: "";
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scale(0.9);
+}
+
+/* Add your custom CSS here */
+.slick-prev, .slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: 2px solid var(--col-white);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.slick-prev {
+  left: 10px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+}
+
+.slick-next {
+  right: 10px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+}
+
+.slick-prev:before, .slick-next:before {
+  content: "";
+}
+
+.slick-prev:before, .slick-next:before,
+.slick-dots li button:before {
+  content: "";
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 10;
+  bottom: 80px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slick-dots li button {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: var(--col-white);
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slick-dots li.slick-active button {
+  background-color: transparent;
+  border: 2px solid var(--col-white);
+}
+
 .has-blue-color,
 .has-blue-color:visited {
   color: #0d6efd;

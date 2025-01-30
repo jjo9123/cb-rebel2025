@@ -6789,6 +6789,27 @@
 	  });
 	});
 
+	// Replace R
+	const elements = document.querySelectorAll('.replace-text');
+	elements.forEach(function (element) {
+	  // Get the inner HTML
+	  let html = element.innerHTML;
+
+	  // Find all occurrences of "r" (case-insensitive)
+	  const matchedCharacters = Array.from(element.textContent.matchAll(/r/gi));
+
+	  // Log the matched characters
+	  console.log("Matched characters:", matchedCharacters.map(match => match[0]));
+
+	  // Replace "r" with the desired HTML structure
+	  const newHtml = html.replace(/r/gi, function (match) {
+	    return `<span class="wrap"><i><strong>${match}</strong></i></span>`;
+	  });
+
+	  // Set the modified HTML back to the element
+	  element.innerHTML = newHtml;
+	});
+
 	// (function(){
 	//     // hide header on scroll
 

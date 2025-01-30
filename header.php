@@ -109,15 +109,9 @@ do_action('wp_body_open');
 ?>
     <header class="navholder" id="navholder">
         <div id="wrapper-navbar" class="fixed-top">
-            <section class="prenav">
-                <div class="container-xl">
-                    <?=do_shortcode('[contact_phone_icon]')?>
-                    <?=do_shortcode('[contact_email_icon]')?>
-                </div>
-            </section>
             <nav id="navbar" class="navbar navbar-expand-lg" aria-labelledby="main-nav-label">
                 <div class="container-xl">
-                    <a href="/"><img class="header__logo" src="<?=get_stylesheet_directory_uri()?>/img/unda-logo.svg" alt="Home" width="317" height="93"></a>
+                    <a href="/"><img class="header__logo" src="<?=get_stylesheet_directory_uri()?>/img/perfectrebel-logo-white.svg" alt="Home" width="317" height="93"></a>
                     <button class="navbar-toggler input-button" id="navToggle" data-bs-toggle="collapse"
                         data-bs-target=".navbars" type="button" aria-label="Navigation"><i
                             class="fa fa-navicon"></i></button>
@@ -135,6 +129,11 @@ wp_nav_menu(
                             )
 );
 ?>
+                <!-- Contact Information (Phone and Email) -->
+                <div class="contact-info d-flex gap-3 align-items-center">
+                    <?= do_shortcode('[social_in_icon]') ?>
+                    <?= do_shortcode('[contact_email_icon]') ?>
+                </div>
                 </div>
             </nav>
         </div>

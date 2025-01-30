@@ -1,8 +1,11 @@
-.hero {
+.hero-slide {
     background-color: var(--col-black);
     min-height: 600px;
-    padding-bottom: 60px!important;
+    padding-bottom: 80px!important;
+    padding-top: 60px!important;
     color: var(--col-white);
+    margin: 0 auto;
+    margin-bottom: 0;
     &.hero--short {
         height: auto;
         padding-bottom: 1rem;
