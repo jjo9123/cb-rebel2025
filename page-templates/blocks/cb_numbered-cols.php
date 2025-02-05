@@ -1,10 +1,15 @@
 <?php
 // Get ACF background image
 $background_image = get_field('background');
-$columns = get_field('columns'); // Repeater field
+$columns = get_field('columns');
+
+$background_style = '';
+if ($background_image && is_array($background_image) && isset($background_image['url'])) {
+    $background_style = "background: url('" . esc_url($background_image['url']) . "') center/cover no-repeat;";
+}
 ?>
 
-<section class="numbered-cols" style="position: relative; background: url('<?php echo esc_url($background_image['url']); ?>') center/cover no-repeat;">
+<section class="numbered-cols" style="position: relative; <?php echo $background_style; ?>">
     <div class="container py-5">
         <div class="row g-4">
             <?php if ($columns): ?>

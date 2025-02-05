@@ -38,8 +38,13 @@ body {
 h1, .h1, h2, .h2, h3, .h3, h4, .h4  {
     font-family: var(--ff-headings);
     //text-wrap: balance;
-    font-weight: var(--fw-900);
     color: var(--col-white);
+}
+h1, .h1 {
+    font-weight: var(--fw-900);
+}
+h2, .h2, h3, .h3, h4, .h4 {
+    font-weight: var(--fw-300);
 }
 
 h1, .h1 {
@@ -48,8 +53,9 @@ h1, .h1 {
 }
 
 h2, .h2 {
-    font-size: var(--fs-700);
+    font-size: var(--fs-600);
     line-height: var(--lh-800);
+    text-transform: uppercase;
 }
 h3, .h3 {
     font-size: var(--fs-600);

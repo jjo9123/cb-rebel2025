@@ -47,12 +47,13 @@
         font-weight: bold;
         position: absolute;
         color: transparent;
-        background: linear-gradient(to bottom, #663399, rgba(102, 51, 153, 0)); /* Matches the card */
+        background: linear-gradient(to bottom, #663399, rgba(102, 51, 153, 0.7)); /* Matches the card */
         -webkit-background-clip: text;
         background-clip: text;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        line-height: 200px;
     }
     
     

@@ -1,0 +1,79 @@
+.step-cols {
+    width: calc(100% - 10%);
+    margin: auto;
+    color: var(--col-white);
+    padding: 50px 0;
+
+    .container {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: var(--col-white);
+    }
+    .col-lg-6 {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Left Column (Title) */
+    .card-box.step {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: rgba(255, 255, 255, 0.5);
+        padding: 20px;
+        text-align: left;
+        transition: background 0.3s ease-in-out;
+        flex: 1 1 auto;
+        .card-text p {
+            font-weight: var(--fw-900);
+            color: var(--col-highlight);
+            text-transform: uppercase;
+        }
+        .card-box.step:hover {
+            background: rgba(255, 255, 255, 0.7);
+        }
+        .card-number {
+            font-size: 2rem;
+            font-weight: bold;
+            background: var(--col-highlight);
+            color: var(--col-white);
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 15px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            flex-shrink: 0;
+        }
+    }
+
+    /* Right Column (Read More Content) */
+    .card-box.read-more-content {
+        background: var(--col-dark);
+        color: var(--col-white);
+        padding: 20px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .card-box.step:hover + .card-box.read-more-content,
+    .card-box.step.active + .card-box.read-more-content {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Adjust Read More Text */
+    .card-text p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin: 0;
+    }
+}

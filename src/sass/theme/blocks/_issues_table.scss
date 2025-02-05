@@ -1,0 +1,113 @@
+.issue-cols {
+    width: calc(100% - 10%);
+    margin: auto;
+    color: var(--col-white);
+    padding: 50px 0;
+    .container {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .header-title {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        color: var(--col-white);
+        padding-bottom: 10px;
+        text-align: left;
+    }
+
+    /* Card Styles */
+    .card-box {
+        position: relative;
+        padding: 20px;
+        text-align: left;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    .card-box.issue {
+        background: rgba(255, 255, 255, 0.5);
+        .read-more {
+            font-weight: var(--fw-400);
+            color: var(--col-dark);
+            text-transform: initial;
+        }
+        &:hover {
+            background: rgba(255, 255, 255, 0.7);
+        }
+    }
+    .card-box.outcomes {
+        background-color: var(--col-dark);
+        opacity: .5;
+        .read-more {
+            font-weight: var(--fw-400);
+            color: var(--col-white);
+            text-transform: initial;
+        }
+        &:hover {
+            background-color: var(--col-dark);
+            opacity: .7;
+        }
+    }
+
+    .card-box:hover {
+        transform: translateY(-5px);
+    }
+
+    /* First Two Columns Text */
+    .card-text {
+        font-size: 1.2rem;
+        font-weight: var(--fw-900);
+        text-transform: uppercase;
+        text-align: left;
+    }
+
+    .read-more, .card-solution {
+        display: none;
+        margin-top: 15px;
+        font-size: 1rem;
+        color: var(--col-white);
+    }
+
+    .card-box:hover .read-more, .card-box:hover .card-solution {
+        display: block;
+    }
+
+    /* Third Column: Numbers and Inline Hover Solution */
+    .solution-box {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .card-number {
+        font-size: 2rem;
+        font-weight: bold;
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--col-highlight);
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        border-radius: 50%;
+        margin-right: 15px;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    .card-solution {
+        position: relative;
+        flex-grow: 1;
+        color: var(--col-white);
+        opacity: 0; /* Hidden by default */
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .solution-box:hover .card-solution {
+        opacity: 1; /* Show on hover */
+        visibility: visible;
+    }
+
+    .solution-text {
+        display: inline;
+    }
+}

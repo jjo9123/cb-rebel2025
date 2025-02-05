@@ -1,0 +1,127 @@
+.boxes {
+    width: calc(100% - 10%);
+    margin: auto;
+    padding-top: 100px;
+    .container {
+        max-width: 1200px;
+        margin: auto;
+    }
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .acf-boxes-container {
+        max-width: 1200px;
+        margin: auto;
+    }
+    .acf-box-title h4 {
+        font-weight: var(--fw-900);
+    }
+    
+    .acf-boxes-group {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    
+    .acf-boxes-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        width: 100%;
+    }
+    
+    .acf-box {
+        position: relative;
+        color: var(--col-white);
+        padding: 20px;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+        z-index: 0;
+        min-height: 150px;
+    }
+    
+    .dots {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .dots img {
+        width: 10px;
+        height: 30px;
+    }
+    
+    .acf-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--col-dark);
+        opacity: 0.5;
+        z-index: -1;
+    }
+    .acf-box:hover::before {
+        background-color: var(--col-white);
+        opacity: 0.7;
+    }
+    
+    .acf-box-title h4 {
+        text-align: left;
+        font-size: var(--fs-200);
+        margin: 0;
+    }
+    
+    .acf-hover-content-row {
+        position: relative; /* Change from absolute to relative */
+        opacity: 0;
+        visibility: hidden;
+        background-color: rgba(255, 255, 255, 0.6);
+        color: var(--col-white);
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+        margin-top: 20px; /* Adjust spacing between box and hover content */
+    }
+    
+    .acf-hover-content-row::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 10px;
+        background-color: var(--col-highlight);
+        border-radius: 0 0 5px 5px;
+    }
+    .acf-box:hover ~ .acf-hover-content-row {
+        opacity: 1;
+        visibility: visible;
+        background-color: rgba(255, 255, 255, .5);
+    }
+    
+    .acf-hover-content-row:not(.active) {
+        display: none;
+    }
+    
+    .acf-box:hover ~ .acf-hover-content-row,
+    .acf-hover-content-row.active {
+        opacity: 1;
+        visibility: visible;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .acf-box:hover .acf-hover-content-row {
+        opacity: 1;
+        visibility: visible;
+        background-color: rgba(255, 255, 255, .5);
+    }
+}

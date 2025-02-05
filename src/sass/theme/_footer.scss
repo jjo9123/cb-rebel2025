@@ -1,11 +1,37 @@
 footer {
-    background-color: var(--col-green-400);
+    background-color: var(--col-highlight);
+    background-image: url(../img/footer_bar.png);
     color: var(--col-white);
     font-size: var(--fs-350);
+    background-repeat: no-repeat;
+    background-size: cover;
     .menu {
         list-style: none;
         padding-inline-start: 0;
-    }
+    
+        ul {
+            list-style: none;
+            padding-left: 0;
+    
+            li {
+                a {
+                    text-transform: uppercase;
+                    position: relative;
+                    padding-right: 20px;
+    
+                    &::after {
+                        content: "";
+                        background: url('/wp-content/themes/cb-rebel2025/img/rebel-dot.svg') no-repeat center;
+                        background-size: contain;
+                        width: 10px;
+                        height: 10px;
+                        display: inline-block;
+                        margin-left: 5px;
+                    }
+                }
+            }
+        }
+    }    
     a {
         color: var(--col-white);
         &:hover {
@@ -16,8 +42,9 @@ footer {
         font-weight: var(--fw-700);
     }
     .colophon {
-        font-size: var(--fs-300);
+        font-size: var(--fs-100);
         color: var(--col-grey-200);
+        background: black;
     }
 
     .footer__logo {
