@@ -88,7 +88,7 @@
         padding: 20px;
         text-align: center;
         transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-        margin-top: 20px; /* Adjust spacing between box and hover content */
+        margin-top: 20px;
     }
     
     .acf-hover-content-row::before {
@@ -123,5 +123,31 @@
         opacity: 1;
         visibility: visible;
         background-color: rgba(255, 255, 255, .5);
+    }
+}
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+    .boxes {
+        .acf-boxes-row {
+            grid-template-columns: 1fr;
+        }
+        .acf-hover-content-mobile {
+            display: block; /* Always visible on mobile */
+            opacity: 1;
+            visibility: visible;
+            position: relative;
+            width: 100%;
+            margin-top: 10px;
+            text-align: left;
+        }
+    
+        .acf-box.active .acf-hover-content-mobile {
+            display: block; /* Show when box is clicked */
+        }
+    }
+
+}
+@media (min-width: 768px) {
+    .acf-hover-content-mobile {
+        display: none; /* Hide the mobile version on desktop */
     }
 }

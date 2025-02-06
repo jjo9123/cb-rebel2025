@@ -21440,7 +21440,7 @@ header .prenav .container-xl {
 }
 .header #navbar,
 header #navbar {
-  padding-block: 66px;
+  padding-block: 40px;
   background-color: rgba(0, 0, 0, 0.5);
 }
 .header #navbar a.nav-link,
@@ -21774,6 +21774,9 @@ footer .cb:hover {
 .hero-slide h1, .hero-slide .h1 {
   font-size: var(--fs-800);
 }
+.hero-slide h2, .hero-slide .h2 {
+  font-weight: var(--fw-900);
+}
 .hero-slide__bg {
   position: absolute;
   bottom: 1rem;
@@ -21831,6 +21834,9 @@ footer .cb:hover {
 }
 .feat-slider .feat-slide h1, .feat-slider .feat-slide .h1 {
   font-size: var(--fs-800);
+}
+.feat-slider .feat-slide h2, .feat-slider .feat-slide .h2 {
+  font-weight: var(--fw-900);
 }
 .feat-slider .feat-slide__bg {
   position: absolute;
@@ -22081,7 +22087,7 @@ footer .cb:hover {
 }
 .numbered-cols .card-number::after {
   content: attr(data-number); /* Displays the number dynamically */
-  font-size: 15rem;
+  font-size: 22rem;
   font-weight: bold;
   position: absolute;
   color: transparent;
@@ -22091,7 +22097,7 @@ footer .cb:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  line-height: 200px;
+  line-height: 300px;
 }
 .numbered-cols .card-text {
   font-size: 1.2rem;
@@ -22102,6 +22108,11 @@ footer .cb:hover {
   font-weight: bold;
 }
 
+@media (max-width: 767px) {
+  .numbered-cols .card-wrapper {
+    margin-bottom: 120px;
+  }
+}
 .latest_cs__card {
   display: grid;
   gap: 0.5rem;
@@ -22298,7 +22309,7 @@ footer .cb:hover {
   padding: 20px;
   text-align: center;
   transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-  margin-top: 20px; /* Adjust spacing between box and hover content */
+  margin-top: 20px;
 }
 .boxes .acf-hover-content-row::before {
   content: "";
@@ -22331,6 +22342,28 @@ footer .cb:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+  .boxes .acf-boxes-row {
+    grid-template-columns: 1fr;
+  }
+  .boxes .acf-hover-content-mobile {
+    display: block; /* Always visible on mobile */
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+  }
+  .boxes .acf-box.active .acf-hover-content-mobile {
+    display: block; /* Show when box is clicked */
+  }
+}
+@media (min-width: 768px) {
+  .acf-hover-content-mobile {
+    display: none; /* Hide the mobile version on desktop */
+  }
+}
 .issue-cols {
   width: 90%;
   margin: auto;
@@ -22423,12 +22456,12 @@ footer .cb:hover {
   flex-grow: 1;
   color: var(--col-white);
   opacity: 0; /* Hidden by default */
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  visibility: hidden; /* Ensures no interaction when invisible */
+  transition: opacity 0.3s ease; /* Remove visibility from transition */
 }
 .issue-cols .solution-box:hover .card-solution {
   opacity: 1; /* Show on hover */
-  visibility: visible;
+  visibility: visible; /* Immediately make it interactable */
 }
 .issue-cols .solution-text {
   display: inline;
@@ -22672,6 +22705,38 @@ main > section:first-of-type {
   transform: translateY(-50%) scale(0.9);
 }
 
+@media (max-width: 1100px) {
+  .replace-text {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 100px;
+    align-items: center;
+    color: var(--col-highlight);
+  }
+  .replace-text span i {
+    position: relative;
+    padding-left: 1.5rem;
+    display: inline-block;
+    line-height: 1;
+  }
+  .replace-text span i strong {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .replace-text span i::before {
+    position: absolute;
+    width: 0.9em;
+    height: 0.9em;
+    background-image: url(../img/R-word.svg);
+    content: "";
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) scale(0.9);
+  }
+}
 /* Add your custom CSS here */
 .slick-prev, .slick-next {
   position: absolute;

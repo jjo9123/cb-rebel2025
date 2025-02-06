@@ -15,7 +15,7 @@ if ($background_image && is_array($background_image) && isset($background_image[
             <?php if ($columns): ?>
                 <?php $index = 0; ?>
                 <?php foreach ($columns as $column): ?>
-                    <div class="card-wrapper col-lg-3 mx-4">
+                    <div class="card-wrapper col-10 col-sm-4 col-lg-3 mx-4">
                         <div class="card p-4 position-relative">
                         <div class="card-number position-absolute" data-number="<?php echo ++$index; ?>"></div>
 

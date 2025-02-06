@@ -14,7 +14,7 @@ $background_url = $background ? wp_get_attachment_image_url($background, 'full')
                 if (get_field('content') ?? null) {
                     $d+=100;
                     ?>
-                <div class="fs-500 fw-600" data-aos="fade-right" data-aos-delay="<?=$d?>"><?=get_field('content')?></div>
+                <div class="fs-300 fw-600" data-aos="fade-right" data-aos-delay="<?=$d?>"><?=get_field('content')?></div>
                     <?php
                 }
                 if (get_field('cta') ?? null) {
