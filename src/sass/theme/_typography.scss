@@ -41,20 +41,21 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4  {
     color: var(--col-white);
 }
 h1, .h1 {
-    font-weight: var(--fw-900);
+    font-weight: var(--fw-300);
 }
 h2, .h2, h3, .h3, h4, .h4 {
     font-weight: var(--fw-300);
+    padding-bottom: 20px;
 }
 
 h1, .h1 {
     font-size: var(--fs-700);
-    line-height: var(--lh-900);
+    line-height: var(--lh-500);
 }
 
 h2, .h2 {
     font-size: var(--fs-600);
-    line-height: var(--lh-800);
+    line-height: var(--lh-500);
     text-transform: uppercase;
 }
 h3, .h3 {

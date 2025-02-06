@@ -69,36 +69,56 @@ add_action('wp_footer', function () {
     }
 
     function enableHover(block) {
+        let lastActiveContent = null; // Store the last active element
+
         block.querySelectorAll(".acf-box").forEach(box => {
             box.addEventListener("mouseenter", function () {
                 if (isMobile()) return; // Disable hover on mobile
-                
-                reset(block); // Reset previous selections
+
                 const rowIndex = this.getAttribute("data-row");
                 const boxIndex = this.getAttribute("data-box");
 
-                const hoverContent = block.querySelector(`.acf-hover-content-row[data-row="${rowIndex}"][data-box="${boxIndex}"]`);
-                if (hoverContent) {
-                    hoverContent.classList.add("active");
-                    hoverContent.style.opacity = "1";
-                    hoverContent.style.visibility = "visible";
+                const newContent = block.querySelector(`.acf-hover-content-row[data-row="${rowIndex}"][data-box="${boxIndex}"]`);
+
+                if (newContent) {
+                    // If there's an active content, fade it out first before fading the new one in
+                    if (lastActiveContent && lastActiveContent !== newContent) {
+                        lastActiveContent.style.opacity = "0";
+                        lastActiveContent.style.visibility = "hidden";
+
+                        setTimeout(() => {
+                            lastActiveContent.classList.remove("active");
+                            if (newContent) {
+                                newContent.classList.add("active");
+                                newContent.style.opacity = "1";
+                                newContent.style.visibility = "visible";
+                            }
+                        }, 300); // Wait 300ms before fading in the new one
+                    } else {
+                        newContent.classList.add("active");
+                        newContent.style.opacity = "1";
+                        newContent.style.visibility = "visible";
+                    }
+
+                    lastActiveContent = newContent; // Update last active content
                 }
             });
 
-            // **Hide content when moving mouse away**
             box.addEventListener("mouseleave", function () {
-                const rowIndex = this.getAttribute("data-row");
-                const boxIndex = this.getAttribute("data-box");
+                if (lastActiveContent) {
+                    lastActiveContent.style.opacity = "0";
+                    lastActiveContent.style.visibility = "hidden";
 
-                const hoverContent = block.querySelector(`.acf-hover-content-row[data-row="${rowIndex}"][data-box="${boxIndex}"]`);
-                if (hoverContent) {
-                    hoverContent.classList.remove("active");
-                    hoverContent.style.opacity = "0";
-                    hoverContent.style.visibility = "hidden";
+                    setTimeout(() => {
+                        if (lastActiveContent.style.opacity === "0") {
+                            lastActiveContent.classList.remove("active");
+                        }
+                    }, 500); // Matches the CSS transition duration
                 }
             });
         });
     }
+
 
     // Click behavior is no longer needed since content is always visible on mobile
     /*

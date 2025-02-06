@@ -39,6 +39,17 @@ header {
         font-weight: var(--fw-700);
         font-size: var(--fs-100);
         color: var(--col-white);
+        position: relative;
+        &::after {
+            content: "";
+            background: url(/wp-content/themes/cb-rebel2025/img/rebel-dot.svg) no-repeat center;
+            background-size: contain;
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+            margin-left: 5px;
+        }
+
     }
    }
 

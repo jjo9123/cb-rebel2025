@@ -155,6 +155,7 @@ main > section:first-of-type {
     display: flex;
     flex-wrap: wrap;
     font-size: 200px;
+    font-weight: var(--fw-900);
     align-items: center; // Ensures all elements inside align properly
     color: var(--col-highlight);
   
@@ -224,42 +225,47 @@ main > section:first-of-type {
       }
 }
   
-        /* Add your custom CSS here */
-        .slick-prev, .slick-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: transparent;
-            border: 2px solid var(--col-white);
-            border-radius: 50%;
-            height: 40px;
-            width: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
-            cursor: pointer;
-        }
+/* Custom Slick Arrow Styles */
+.slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: 2px solid var(--col-white);
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+}
+.slick-next:focus, .slick-next:hover, .slick-prev:focus, .slick-prev:hover {
+    background-color: transparent !important;
+    background-image: inherit !important; /* Preserve the background image */
+}
 
-        .slick-prev {
-            left: 10px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 50%;
-        }
 
-        .slick-next {
-            right: 10px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 50%;
-        }
+/* Left Arrow (Previous) */
+.slick-prev {
+    left: 10px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M32 15H3.41l8.29-8.29-1.41-1.42-10 10a1 1 0 0 0 0 1.41l10 10 1.41-1.41L3.41 17H32z" fill="%23fff" data-name="4-Arrow Left"/></svg>');
+}
 
-        .slick-prev:before, .slick-next:before {
-            content: '';
-        }
+/* Right Arrow (Next) */
+.slick-next {
+    right: 10px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" fill="%23fff" data-name="3-Arrow Right"/></svg>');
+}
+
+/* Remove default Slick arrow icons */
+.slick-prev:before, .slick-next:before {
+    content: '';
+}
 
 .slick-prev:before, .slick-next:before,
 .slick-dots li button:before {
@@ -292,4 +298,33 @@ main > section:first-of-type {
 .slick-dots li.slick-active button {
     background-color: transparent;
     border: 2px solid var(--col-white);
+}
+.wp-text-block {
+    width: calc(100% - 17%);
+    margin: auto;
+}
+.wp-text-block.w-bgimg {
+    /*background-image: url(../img/bg-r.svg);
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: contain;*/
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(../img/bg-r.svg);
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-size: 300px 300px;
+        filter: brightness(0.7);
+        z-index: 0;
+    }
+    * {
+        position: relative;
+        z-index: 1;
+    }
 }

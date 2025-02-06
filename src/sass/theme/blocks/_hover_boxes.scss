@@ -79,59 +79,46 @@
     }
     
     .acf-hover-content-row {
-        position: relative; /* Change from absolute to relative */
+        position: absolute;
+        left: 0;
+        width: 100%;
         opacity: 0;
         visibility: hidden;
         background-color: rgba(255, 255, 255, 0.6);
         color: var(--col-white);
-        width: 100%;
         padding: 20px;
         text-align: center;
-        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-        margin-top: 20px;
+        transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+        z-index: 10;
     }
     
-    .acf-hover-content-row::before {
-        content: "";
-        position: absolute;
-        top: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 20px;
-        height: 10px;
-        background-color: var(--col-highlight);
-        border-radius: 0 0 5px 5px;
-    }
-    .acf-box:hover ~ .acf-hover-content-row {
-        opacity: 1;
-        visibility: visible;
-        background-color: rgba(255, 255, 255, .5);
-    }
-    
+    /* Hide fully after fade-out */
     .acf-hover-content-row:not(.active) {
         display: none;
     }
     
-    .acf-box:hover ~ .acf-hover-content-row,
     .acf-hover-content-row.active {
+        display: block;
         opacity: 1;
         visibility: visible;
+        position: absolute;
         background-color: rgba(255, 255, 255, 0.5);
     }
     
-    .acf-box:hover .acf-hover-content-row {
+    .acf-box:hover ~ .acf-hover-content-row {
+        display: block;
         opacity: 1;
         visibility: visible;
-        background-color: rgba(255, 255, 255, .5);
     }
 }
-@media (max-width: 768px) { /* Adjust breakpoint as needed */
+
+@media (max-width: 768px) {
     .boxes {
         .acf-boxes-row {
             grid-template-columns: 1fr;
         }
         .acf-hover-content-mobile {
-            display: block; /* Always visible on mobile */
+            display: block;
             opacity: 1;
             visibility: visible;
             position: relative;
@@ -141,13 +128,13 @@
         }
     
         .acf-box.active .acf-hover-content-mobile {
-            display: block; /* Show when box is clicked */
+            display: block;
         }
     }
-
 }
+
 @media (min-width: 768px) {
     .acf-hover-content-mobile {
-        display: none; /* Hide the mobile version on desktop */
+        display: none;
     }
 }
