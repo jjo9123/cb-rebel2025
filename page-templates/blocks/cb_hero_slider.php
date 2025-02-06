@@ -19,7 +19,7 @@ $hero_slides = get_field('hero_slides'); // Repeater field containing cloned Her
                                 <?php endif; ?>
                                 
                                 <?php if (!empty($slide['content'])): ?>
-                                    <div class="fs-500 fw-600" data-aos="fade-right" data-aos-delay="100"><?= $slide['content'] ?></div>
+                                    <div class="fs-300 fw-600" data-aos="fade-right" data-aos-delay="100"><?= $slide['content'] ?></div>
                                 <?php endif; ?>
 
                                 <?php if (!empty($slide['cta'])): ?>

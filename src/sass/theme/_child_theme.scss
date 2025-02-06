@@ -186,6 +186,43 @@ main > section:first-of-type {
       }
     }
   }
+  @media (max-width: 1100px) {
+    .replace-text {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 100px;
+        align-items: center; // Ensures all elements inside align properly
+        color: var(--col-highlight);
+      
+        span {
+          i {
+            position: relative;
+            padding-left: 1.5rem;
+            display: inline-block;
+            line-height: 1; // Prevents unnecessary extra spacing
+      
+            strong {
+              opacity: 0;
+              pointer-events: none;
+            }
+      
+            &::before {
+              position: absolute;
+              width: 0.9em; // Match the text size dynamically
+              height: 0.9em; // Keep proportions
+              background-image: url(../img/R-word.svg);
+              content: "";
+              background-repeat: no-repeat;
+              background-position: center center;
+              background-size: contain; // Ensures it scales properly
+              left: 0;
+              top: 50%; // Centers vertically
+              transform: translateY(-50%) scale(0.9); // Fine-tune size
+            }
+          }
+        }
+      }
+}
   
         /* Add your custom CSS here */
         .slick-prev, .slick-next {

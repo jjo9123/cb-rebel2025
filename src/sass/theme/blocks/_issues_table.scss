@@ -98,13 +98,13 @@
         flex-grow: 1;
         color: var(--col-white);
         opacity: 0; /* Hidden by default */
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
+        visibility: hidden; /* Ensures no interaction when invisible */
+        transition: opacity 0.3s ease; /* Remove visibility from transition */
     }
-
+    
     .solution-box:hover .card-solution {
         opacity: 1; /* Show on hover */
-        visibility: visible;
+        visibility: visible; /* Immediately make it interactable */
     }
 
     .solution-text {
