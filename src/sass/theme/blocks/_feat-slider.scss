@@ -15,14 +15,27 @@
             margin: 0 2px;
         }
     }
+    .replace-text {
+        color: var(--col-white);
+        span {
+            i {
+                &::before {
+                    position: absolute;
+                    width: 0.9em; // Match the text size dynamically
+                    height: 0.9em; // Keep proportions
+                    background-image: url(../img/R-word-white.svg);
+                }
+            }
+        }
+    }
     .feat-slide {
         background-color: var(--col-black);
         border-radius: 30px;
         min-height: 600px;
         padding-left: 40px;
         padding-right: 40px;
-        padding-bottom: 80px!important;
-        padding-top: 60px!important;
+        padding-bottom: 160px!important;
+        padding-top: 100px!important;
         color: var(--col-white);
         margin: 0 auto;
         margin-bottom: 0;
@@ -38,9 +51,6 @@
         overflow: clip;
         h1 {
             font-size: var(--fs-800);
-        }
-        h2 {
-            font-weight: var(--fw-900);
         }
         &__bg {
             position: absolute;
