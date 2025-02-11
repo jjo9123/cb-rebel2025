@@ -18,15 +18,7 @@ defined('ABSPATH') || exit;
         charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="profile" href="http://gmpg.org/xfn/11">
-    <link rel="preload"
-        href="<?=get_stylesheet_directory_uri()?>/fonts/Blacker-Pro-Display-Bold.woff2"
-        as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload"
-        href="<?=get_stylesheet_directory_uri()?>/fonts/GT-Walsheim-Light.woff2"
-        as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload"
-        href="<?=get_stylesheet_directory_uri()?>/fonts/GT-Walsheim-Medium.woff2"
-        as="font" type="font/woff2" crossorigin="anonymous">
+    
     <?php
     if (is_front_page()) {
         ?>
@@ -111,7 +103,7 @@ do_action('wp_body_open');
         <div id="wrapper-navbar" class="fixed-top">
             <nav id="navbar" class="navbar navbar-expand-lg" aria-labelledby="main-nav-label">
                 <div class="container-xl">
-                    <a href="/"><img class="header__logo" src="<?=get_stylesheet_directory_uri()?>/img/perfectrebel-logo-white.svg" alt="Home" width="317" height="93"></a>
+                    <a href="/"><img class="header__logo" src="<?=get_stylesheet_directory_uri()?>/img/gradient-logo.svg" alt="Home" width="317" height="93"></a>
                     <button class="navbar-toggler input-button" id="navToggle" data-bs-toggle="collapse"
                         data-bs-target=".navbars" type="button" aria-label="Navigation"><i
                             class="fa fa-navicon"></i></button>

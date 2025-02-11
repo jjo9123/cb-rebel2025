@@ -94,3 +94,21 @@ function understrap_child_customize_controls_js() {
 	);
 }
 add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_controls_js' );
+
+function custom_gutenberg_button_render($block_content, $block) {
+    if ($block['blockName'] === 'core/button') {
+        // Extract button text and URL from Gutenberg attributes
+        $cta_url = esc_url($block['attrs']['url'] ?? '#');
+        $cta_target = isset($block['attrs']['target']) ? ' target="_blank"' : '';
+        $cta_title = esc_html($block['attrs']['text'] ?? 'Find out more');
+
+        // Replace with your custom button structure
+        return '<a class="btn btn-primary mt-4 align-self-center align-self-md-start" href="'.$cta_url.'"'.$cta_target.'>'
+                .$cta_title.
+                '<span class="arrow-circle"></span></a>';
+    }
+
+    return $block_content;
+}
+
+add_filter('render_block', 'custom_gutenberg_button_render', 10, 2);

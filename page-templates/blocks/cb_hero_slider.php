@@ -7,33 +7,35 @@ $hero_slides = get_field('hero_slides'); // Repeater field containing cloned Her
     <div class="hero-slider__wrapper">
         <?php if ($hero_slides): ?>
             <?php foreach ($hero_slides as $index => $slide): ?>
-                <div class="hero-slide col-black pt-4 pb-3 mb-5" style="background-image: url('<?= wp_get_attachment_url($slide['background']); ?>');">
+                <div class="hero-slide col-black pt-4 pb-5" style="background-image: url('<?= wp_get_attachment_url($slide['background']); ?>'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                    <div class="hero-content"> 
                     <div class="container-xl h-100">
-                        <div class="row h-100">
-                            <div class="col-lg-10 d-flex flex-column pt-4 pt-lg-0 align-items-center align-items-md-start justify-content-start justify-content-md-center">
-                                
-                                <?php if ($index === 0): ?>
-                                    <h1 data-aos="fade-right" class="text-center text-md-start"><?= $slide['title'] ?></h1>
-                                <?php else: ?>
-                                    <h2 data-aos="fade-right" class="text-center text-md-start"><?= $slide['title'] ?></h2>
-                                <?php endif; ?>
-                                
-                                <?php if (!empty($slide['content'])): ?>
-                                    <div class="fs-300 fw-600" data-aos="fade-right" data-aos-delay="100"><?= $slide['content'] ?></div>
-                                <?php endif; ?>
+                                <div class="row h-100">
+                                    <div class="col-lg-12 d-flex flex-column pt-4 pt-lg-0 align-items-center align-items-md-start justify-content-start justify-content-md-center">
+                                        
+                                        <?php if ($index === 0): ?>
+                                            <h1 data-aos="fade-right" class="text-center text-md-start"><?= $slide['title'] ?></h1>
+                                        <?php else: ?>
+                                            <h2 data-aos="fade-right" class="text-center text-md-start"><?= $slide['title'] ?></h2>
+                                        <?php endif; ?>
+                                        
+                                        <?php if (!empty($slide['content'])): ?>
+                                            <div class="fs-300 fw-600" data-aos="fade-right" data-aos-delay="100"><?= $slide['content'] ?></div>
+                                        <?php endif; ?>
 
-                                <?php if (!empty($slide['cta'])): ?>
-                                    <a class="btn btn-primary mt-4 align-self-center align-self-md-start"
-                                       href="<?= $slide['cta']['url'] ?>" 
-                                       target="<?= $slide['cta']['target'] ?>" 
-                                       data-aos="fade-right" data-aos-delay="200">
-                                        <?= $slide['cta']['title'] ?>
-                                    </a>
-                                <?php endif; ?>
+                                        <?php if (!empty($slide['cta'])): ?>
+                                            <a class="btn btn-primary mt-4 align-self-center align-self-md-start"
+                                            href="<?= $slide['cta']['url'] ?>" 
+                                            target="<?= $slide['cta']['target'] ?>" 
+                                            data-aos="fade-right" data-aos-delay="200">
+                                                <?= $slide['cta']['title'] ?>
+                                            </a>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                                        </div>
                     </div>
-                </div>
             <?php endforeach; ?>
         <?php else: ?>
             <p>No hero slides found.</p>
@@ -68,11 +70,45 @@ add_action('wp_footer', function () {
                     autoplaySpeed: 5000,
                     fade: true,
                     cssEase: 'linear'
+                }).on('setPosition', function () {
+                    setEqualHeightForAllSliders();
                 });
             }
         });
+
+        // Function to set equal height for all slick sliders
+        function setEqualHeightForAllSliders() {
+            document.querySelectorAll('.hero-slider').forEach(slider => {
+                let maxHeight = 0;
+
+                // Find the tallest slide inside the current slider
+                let slides = slider.querySelectorAll('.slick-slide > div > div.hero-slide'); // Adjust selector if needed
+                slides.forEach(slide => {
+                    slide.style.height = 'auto';
+                    let slideHeight = slide.offsetHeight;
+                    if (slideHeight > maxHeight) {
+                        maxHeight = slideHeight;
+                    }
+                });
+
+                // Apply the tallest height to all slides inside the current slider
+                slides.forEach(slide => {
+                    slide.style.height = maxHeight + 'px';
+                });
+            });
+        }
+
+        setEqualHeightForAllSliders();
+
+        // Listen for slide changes and resize events
+        document.querySelectorAll('.slick-slider').forEach(slider => {
+            slider.addEventListener('transitionend', setEqualHeightForAllSliders);
+        });
+
+        window.addEventListener('resize', setEqualHeightForAllSliders);
     });
-</script>
+    </script>
 
 <?php
 }, 9999);
+?>

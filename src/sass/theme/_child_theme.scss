@@ -261,6 +261,29 @@ main > section:first-of-type {
     right: 10px;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" fill="%23fff" data-name="3-Arrow Right"/></svg>');
 }
+.slick-track {
+    display: flex !important;
+}
+
+.slick-slide {
+    display: flex !important;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.slick-slide > div {
+    display: flex;
+    width: 100%;
+}
+.slick-dotted.slick-slider {
+    margin-bottom: 0!important;
+}
+
+.slick-slide > div > div.feat-slide {
+    display: flex!important;
+    flex-direction: column!important;
+    width: 100%!important;
+}
 
 /* Remove default Slick arrow icons */
 .slick-prev:before, .slick-next:before {

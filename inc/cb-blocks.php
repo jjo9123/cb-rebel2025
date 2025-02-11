@@ -57,6 +57,15 @@ function acf_blocks()
             'supports' => array('mode' => false),
         ));
         acf_register_block_type(array(
+            'name'				=> 'cb_hover_boxes_detail',
+            'title'				=> __('CB Hover Boxes Detail'),
+            'category'			=> 'layout',
+            'icon'				=> 'cover-image',
+            'render_template'	=> 'page-templates/blocks/cb_hover_boxes_detail.php',
+            'mode'	=> 'edit',
+            'supports' => array('mode' => false),
+        ));
+        acf_register_block_type(array(
             'name'				=> 'cb_approach',
             'title'				=> __('CB Approach'),
             'category'			=> 'layout',

@@ -28,6 +28,7 @@ $background_url = $background ? wp_get_attachment_image_url($background, 'full')
                         <?php
                     }
                     ?>
+
                 </div>
             </div>
         </div>
