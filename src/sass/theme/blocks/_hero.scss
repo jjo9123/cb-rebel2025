@@ -13,6 +13,10 @@
     position: relative;
     isolation: isolate;
     overflow: clip;
+    .hero-content {
+        width: calc(100% - 17%);
+        margin: auto;
+    }
     h1 {
         font-size: var(--fs-800);
     }

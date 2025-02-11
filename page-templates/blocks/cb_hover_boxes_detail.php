@@ -18,7 +18,9 @@ if ($columns):
                 <div class="acf-boxes-row">
                 <?php foreach ($row_boxes as $box_index => $box): ?>
                     <div class="acf-box" data-row="<?php echo $row_index; ?>" data-box="<?php echo $box_index; ?>">
-                        <div class="acf-box-title"><h4><?php echo esc_html($box['title']); ?></h4></div>
+                        <div class="acf-box-title"><h4><?php echo esc_html($box['title']); ?></h4>
+                        <p><?php echo wp_kses_post($box['detail']); ?></p>
+                        </div>
                         <div class="dots">
                             <img src="/wp-content/themes/cb-rebel2025/img/rebel-dot.svg" alt="dot">
                         </div>

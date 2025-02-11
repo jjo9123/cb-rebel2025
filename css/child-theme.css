@@ -21401,7 +21401,7 @@ strong {
 
 .header__logo,
 header__logo {
-  max-width: 160px;
+  max-width: 200px;
   -o-object-fit: contain;
   object-fit: contain;
 }
@@ -21737,6 +21737,10 @@ footer .cb:hover {
   height: auto;
   padding-bottom: 1rem;
 }
+.hero .hero-content {
+  width: 83%;
+  margin: auto;
+}
 .hero h1, .hero .h1 {
   font-size: var(--fs-800);
 }
@@ -21758,11 +21762,15 @@ footer .cb:hover {
   }
 }
 
+body main > section.hero-slider {
+  padding-top: 0 !important;
+}
+
 .hero-slide {
   background-color: var(--col-black);
   min-height: 600px;
   padding-bottom: 120px !important;
-  padding-top: 60px !important;
+  padding-top: 150px !important;
   color: var(--col-white);
   margin: 0 auto;
   margin-bottom: 0;
@@ -21770,12 +21778,38 @@ footer .cb:hover {
   isolation: isolate;
   overflow: clip;
 }
+.hero-slide .hero-content {
+  width: 83%;
+  margin: auto;
+}
 .hero-slide.hero--short {
   height: auto;
   padding-bottom: 1rem;
 }
 .hero-slide h1, .hero-slide .h1 {
   font-size: var(--fs-800);
+  text-transform: uppercase;
+}
+.hero-slide h2, .hero-slide .h2 {
+  font-size: var(--fs-800);
+  font-weight: var(--fw-900);
+  text-transform: uppercase;
+}
+.hero-slide .replace-text {
+  font-size: 95px;
+  color: var(--col-white);
+}
+.hero-slide .replace-text span {
+  margin-left: 0.5rem;
+}
+.hero-slide .replace-text span i {
+  padding-left: 1.5rem;
+}
+.hero-slide .replace-text span i::before {
+  position: absolute;
+  width: 0.9em;
+  height: 0.9em;
+  background-image: url(../img/R-word-white.svg);
 }
 .hero-slide__bg {
   position: absolute;
@@ -21842,6 +21876,10 @@ footer .cb:hover {
   padding-bottom: 1rem;
 }
 .feat-slider .feat-slide h1, .feat-slider .feat-slide .h1 {
+  font-size: var(--fs-800);
+}
+.feat-slider .feat-slide h2, .feat-slider .feat-slide .h2 {
+  font-weight: var(--fw-900);
   font-size: var(--fs-800);
 }
 .feat-slider .feat-slide__bg {
@@ -22051,7 +22089,8 @@ footer .cb:hover {
 .numbered-cols {
   width: 90%;
   margin: auto;
-  padding-top: 100px;
+  padding-top: 170px;
+  border-radius: 20px;
 }
 .numbered-cols .row {
   display: flex;
@@ -22294,7 +22333,7 @@ footer .cb:hover {
   right: 0;
   bottom: 0;
   background-color: var(--col-dark);
-  opacity: 0.5;
+  opacity: 0.4;
   z-index: -1;
 }
 .boxes .acf-box:hover::before {
@@ -22307,7 +22346,7 @@ footer .cb:hover {
   margin: 0;
 }
 .boxes .acf-hover-content-row {
-  position: absolute;
+  position: relative;
   left: 0;
   width: 100%;
   opacity: 0;
@@ -22315,7 +22354,7 @@ footer .cb:hover {
   background-color: rgba(255, 255, 255, 0.6);
   color: var(--col-white);
   padding: 20px;
-  text-align: center;
+  text-align: left;
   transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
   z-index: 10;
 }
@@ -22326,7 +22365,137 @@ footer .cb:hover {
   display: block;
   opacity: 1;
   visibility: visible;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.boxes .acf-box:hover ~ .acf-hover-content-row {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 768px) {
+  .boxes .acf-boxes-row {
+    grid-template-columns: 1fr;
+  }
+  .boxes .acf-hover-content-mobile {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+  }
+  .boxes .acf-box.active .acf-hover-content-mobile {
+    display: block;
+  }
+}
+@media (min-width: 768px) {
+  .acf-hover-content-mobile {
+    display: none;
+  }
+}
+.boxes {
+  width: 90%;
+  margin: auto;
+  padding-top: 100px;
+  /* Hide fully after fade-out */
+}
+.boxes .container {
+  max-width: 1200px;
+  margin: auto;
+}
+.boxes .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.boxes .acf-boxes-container {
+  max-width: 1200px;
+  margin: auto;
+}
+.boxes .acf-box-title h4, .boxes .acf-box-title .h4 {
+  font-weight: var(--fw-900);
+}
+.boxes .acf-boxes-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+.boxes .acf-boxes-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust min size */
+  gap: 10px;
+  width: 100%;
+  grid-auto-flow: dense;
+}
+.boxes .acf-box {
+  position: relative;
+  color: var(--col-white);
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  z-index: 0;
+  min-height: 150px;
+}
+.boxes .dots {
   position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.boxes .dots img {
+  width: 10px;
+  height: 30px;
+}
+.boxes .acf-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--col-dark);
+  opacity: 0.4;
+  z-index: -1;
+}
+.boxes .acf-box:hover::before {
+  background-color: var(--col-white);
+  opacity: 0.7;
+}
+.boxes .acf-box-title h4, .boxes .acf-box-title .h4 {
+  text-align: left;
+  font-size: var(--fs-200);
+  margin: 0;
+}
+.boxes .acf-box-title p {
+  text-align: left;
+  font-size: var(--fs-150);
+}
+.boxes .acf-hover-content-row {
+  position: relative;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: var(--col-white);
+  padding: 20px;
+  text-align: left;
+  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+  z-index: 10;
+}
+.boxes .acf-hover-content-row:not(.active) {
+  display: none;
+}
+.boxes .acf-hover-content-row.active {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  position: relative;
   background-color: rgba(255, 255, 255, 0.5);
 }
 .boxes .acf-box:hover ~ .acf-hover-content-row {
@@ -22371,12 +22540,41 @@ footer .cb:hover {
   margin: auto;
 }
 .issue-cols .header-title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   color: var(--col-white);
   padding-bottom: 10px;
   text-align: left;
   font-weight: var(--fw-900);
+  max-width: 300px;
+  position: relative;
+  display: inline-block;
+}
+.issue-cols .header-title.header-1::after {
+  content: "";
+  display: block;
+  width: 300px; /* Adjust to match your image */
+  height: 50px; /* Adjust to match your image */
+  background-image: url(../img/straight-arrow.png); /* Ensure correct path */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 20%; /* Adjust to place it correctly */
+  left: 50%;
+  transform: translateX(0%);
+}
+.issue-cols .header-title.header-2::after {
+  content: "";
+  display: block;
+  width: 300px; /* Adjust to match your image */
+  height: 80px; /* Adjust to match your image */
+  background-image: url(../img/curved-arrow.png); /* Ensure correct path */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 30%; /* Adjust to place it correctly */
+  left: 100%;
+  transform: translateX(-31%);
 }
 .issue-cols .card-box {
   position: relative;
@@ -22447,6 +22645,7 @@ footer .cb:hover {
   transition: transform 0.6s ease, background-color 0.6s ease;
   flex-shrink: 0;
   overflow: hidden;
+  opacity: 0.8;
 }
 .issue-cols .card-solution {
   position: relative;
@@ -22459,6 +22658,10 @@ footer .cb:hover {
 .issue-cols .solution-box:hover .card-solution {
   opacity: 1; /* Show on hover */
   visibility: visible; /* Immediately make it interactable */
+}
+.issue-cols .solution-box:hover .card-number {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.9);
 }
 .issue-cols .solution-text {
   display: inline;
@@ -22787,6 +22990,31 @@ main > section:first-of-type {
 .slick-next {
   right: 10px;
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" fill="%23fff" data-name="3-Arrow Right"/></svg>');
+}
+
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  display: flex !important;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.slick-slide > div {
+  display: flex;
+  width: 100%;
+}
+
+.slick-dotted.slick-slider {
+  margin-bottom: 0 !important;
+}
+
+.slick-slide > div > div.feat-slide {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
 }
 
 /* Remove default Slick arrow icons */
