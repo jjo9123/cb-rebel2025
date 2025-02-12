@@ -3,7 +3,7 @@ $background = get_field('background');
 $background_url = $background ? wp_get_attachment_image_url($background, 'full') : '';
 ?>
 
-<section class="hero pt-4 pb-3 mb-5" 
+<section class="hero pt-4 pb-5" 
     style="background-image: url('<?= esc_url($background_url) ?>'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="hero-content">
         <div class="container-xl h-100">

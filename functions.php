@@ -97,14 +97,23 @@ add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_co
 
 function custom_gutenberg_button_render($block_content, $block) {
     if ($block['blockName'] === 'core/button') {
-        // Extract button text and URL from Gutenberg attributes
+        // Extract attributes
         $cta_url = esc_url($block['attrs']['url'] ?? '#');
         $cta_target = isset($block['attrs']['target']) ? ' target="_blank"' : '';
         $cta_title = esc_html($block['attrs']['text'] ?? 'Find out more');
 
-        // Replace with your custom button structure
-        return '<a class="btn btn-primary mt-4 align-self-center align-self-md-start" href="'.$cta_url.'"'.$cta_target.'>'
-                .$cta_title.
+        // Check for additional classes from Gutenberg
+        $extra_classes = isset($block['attrs']['className']) ? esc_attr($block['attrs']['className']) : '';
+
+        // Always include btn-primary, and append pink-btn if it's in the extra classes
+        $button_classes = 'btn btn-primary mt-4 align-self-center align-self-md-start';
+        if (strpos($extra_classes, 'pink-btn') !== false) {
+            $button_classes .= ' pink-btn';
+        }
+
+        // Return modified button markup
+        return '<a class="' . $button_classes . '" href="' . $cta_url . '"' . $cta_target . '>'
+                . $cta_title .
                 '<span class="arrow-circle"></span></a>';
     }
 

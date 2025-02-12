@@ -457,12 +457,35 @@ function pluralise($quantity, $singular, $plural=null)
     }
 }
 
-function replace_r_tag($option, $content) {
+/*function replace_r_tag($option, $content) {
     global $post;
     $html = '';
     $html .= '<span class="replace-text">'.$content.'</span>';
     
 	return $html;
 }
+add_shortcode('Replace_R', 'replace_r_tag');*/
+
+function replace_r_tag($atts, $content = '') {
+    // Set default value to 'white' if no 'color' attribute is provided
+    $atts = shortcode_atts(
+        array(
+            'color' => 'purple',
+        ), 
+        $atts, 
+        'Replace_R'
+    );
+
+    // Ensure the color class is either 'white' or 'purple'
+    $valid_colors = array('white', 'purple');
+    $color = in_array($atts['color'], $valid_colors) ? $atts['color'] : 'white';
+
+    $class = 'replace-text ' . esc_attr($color);
+
+    $html = '<span class="' . esc_attr($class) . '">' . $content . '</span>';
+    
+    return $html;
+}
 add_shortcode('Replace_R', 'replace_r_tag');
+
 ?>
