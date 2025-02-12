@@ -67,7 +67,7 @@ add_action('wp_footer', function () {
                     prevArrow: slickPrev,
                     nextArrow: slickNext,
                     autoplay: true,
-                    autoplaySpeed: 5000,
+                    autoplaySpeed: 7000,
                     fade: true,
                     cssEase: 'linear'
                 }).on('setPosition', function () {
