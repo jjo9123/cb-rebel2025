@@ -187,6 +187,7 @@ main > section:first-of-type {
       }
     }
     &.white {
+        color: var(--col-white);
         span i::before {
             background-image: url(../img/R-word-white.svg);
         }
@@ -194,6 +195,7 @@ main > section:first-of-type {
     
       // Purple Version
     &.purple {
+        color: var(--col-highlight);
     span i::before {
         background-image: url(../img/R-word.svg);
     }

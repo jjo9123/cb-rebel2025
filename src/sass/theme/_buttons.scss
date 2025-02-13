@@ -1,4 +1,4 @@
-.btn {
+.btn, div.gform-theme.gform-theme--foundation .gform_button.button {
     text-decoration: underline;
     text-underline-offset: 5px; /* Adjust gap between text and underline */
     border-radius: 100vw;
@@ -6,21 +6,30 @@
     border-width: 1px;
     display: inline-block;
     padding: 0.5rem 2rem;
-    font-weight: var(--fw-700);
+    font-weight: var(--fw-200)!important;
     letter-spacing: var(--ls-900);
     transition: color var(--transition), background-color var(--transition);
     padding-left: 0!important;
-    text-transform: uppercase;
+    text-transform: uppercase!important;
+    font-size: var(--fs-200)!important;
 }
-.btn-primary {
+@mixin button-styles {
     background: none;
-    color: var(--col-white);
+    background-color: unset!important;
     border: none;
     position: relative;
     display: inline-flex;
     align-items: center;
     gap: 15px;
     padding: 0.5rem 2rem;
+}
+div.gform-theme.gform-theme--foundation .gform_button.button {
+    @include button-styles;
+    color: var(--col-white)!important;
+}
+.btn-primary {
+    @include button-styles;
+    color: var(--col-white);
 
     /*&::after {
         content: "";
@@ -61,7 +70,7 @@
     }
 }
 .pink-btn {
-    background: none;
+    @include button-styles;
     color: var(--col-highlight)!important;
     .arrow-circle {
         background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" fill="%23E44398" data-name="3-Arrow Right"/></svg>');

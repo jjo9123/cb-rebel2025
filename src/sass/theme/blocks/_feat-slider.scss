@@ -17,8 +17,11 @@
     }
     .replace-text {
         color: var(--col-white);
+        font-size: 95px;
         span {
+            margin-left: 0.5rem;
             i {
+                padding-left: 1.5rem;
                 &::before {
                     position: absolute;
                     width: 0.9em; // Match the text size dynamically
@@ -53,7 +56,6 @@
             font-size: var(--fs-800);
         }
         h2 {
-            font-weight: var(--fw-900);
             font-size: var(--fs-800);
         }
         &__bg {

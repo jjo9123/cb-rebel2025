@@ -1,0 +1,19 @@
+.form .container-xl {
+    border-radius: var(--pad);
+    background: rgba(69, 68, 149, 0.5);
+    padding: 50px 40px;
+    color: var(--col-white);
+    .gform-theme--framework .gfield_list_group_item:before, .gform-theme--framework .gform-field-label {
+        color: var(--col-white);
+        font-weight: var(--fw-900);
+        font-size: var(--fs-200);
+    }
+    .gform-theme--framework .gfield_description {
+        color: var(--col-white)!important;
+    }
+}
+.quiz-intro {
+    color: var(--col-white);
+    width: calc(100% - 17%);
+    margin: auto;
+}

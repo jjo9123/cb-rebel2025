@@ -22,7 +22,8 @@ $background_url = $background ? wp_get_attachment_image_url($background, 'full')
                         $cta = get_field('cta');
                         $d+=100;
                         ?>
-                    <a class="btn btn-primary mt-4 align-self-center align-self-md-start" href="<?=$cta['url']?>" target="<?=$cta['target']?>" data-aos="fade-right" data-aos-delay="<?=$d?>"><?=$cta['title']?></a>
+                    <a class="btn btn-primary mt-4 align-self-center align-self-md-start" href="<?=$cta['url']?>" target="<?=$cta['target']?>" data-aos="fade-right" data-aos-delay="<?=$d?>"><?=$cta['title']?>
+                    <span class="arrow-circle"></span></a>
                         <?php
                     }
                     ?>

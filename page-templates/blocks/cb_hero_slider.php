@@ -29,6 +29,7 @@ $hero_slides = get_field('hero_slides'); // Repeater field containing cloned Her
                                             target="<?= $slide['cta']['target'] ?>" 
                                             data-aos="fade-right" data-aos-delay="200">
                                                 <?= $slide['cta']['title'] ?>
+                                                <span class="arrow-circle"></span>
                                             </a>
                                         <?php endif; ?>
                                     </div>
