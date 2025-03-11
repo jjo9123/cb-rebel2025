@@ -111,6 +111,15 @@ function acf_blocks()
             'supports' => array('mode' => false),
         ));
         acf_register_block_type(array(
+            'name'				=> 'cb_boxes',
+            'title'				=> __('CB Boxes'),
+            'category'			=> 'layout',
+            'icon'				=> 'cover-image',
+            'render_template'	=> 'page-templates/blocks/cb_boxes.php',
+            'mode'	=> 'edit',
+            'supports' => array('mode' => false),
+        ));
+        acf_register_block_type(array(
             'name'				=> 'cb_two_col_text',
             'title'				=> __('CB Two Col Text'),
             'category'			=> 'layout',

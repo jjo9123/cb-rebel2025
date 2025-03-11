@@ -2,8 +2,8 @@
     $evolve_a = get_field('evolve_a'); 
     $pathway_a = get_field('path_a');
     $perf_a = get_field('perf_a'); ?>
-<div class="quiz pt-5 pb-5">
-    <div class="quiz-intro pb-4">
+<div id="quiz" class="quiz pt-5 pb-5">
+    <div class="quiz-intro pb-4 container-xl">
     <h2>THE REBEL INDEX</h2>
             <p><strong>Where on the pathway to performance are you?</strong></p>
             <p>By answering the questions below around the business agility domains, we help you to identify your starting point and create an action plan for <strong>better, faster outcomes</strong></p>
@@ -76,7 +76,7 @@
         
     </form>
     <div id="resultTitle" class="pt-5" style="display: none; font-size: 1.5em; font-weight: bold; margin-top: 20px;">
-        <h2>Your [Replace_R color="white"]Results[/Replace_R]</h2>
+        <h2>Your<br>[Replace_R color="white"]Results[/Replace_R]</h2>
     </div>
     <div id="output" style="display: none; font-weight: bold; margin-top: 20px;">
         <div id="outputMessages">
@@ -193,6 +193,13 @@
             outputMessagesDiv.innerHTML = `<h5>${messageKey}:</h5> ${messageText}`;
             outputDiv.style.display = "block";
             outputTitle.style.display = "block";
+                // Scroll to the results section smoothly
+            setTimeout(() => {
+                document.getElementById("resultTitle").scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }, 300); // Small delay for visibility effect
         }
 
         document.getElementById("calculateButton").addEventListener("click", function(event) {

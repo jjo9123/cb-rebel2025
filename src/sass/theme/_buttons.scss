@@ -26,6 +26,10 @@
 div.gform-theme.gform-theme--foundation .gform_button.button {
     @include button-styles;
     color: var(--col-white)!important;
+    span {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+    }
 }
 .btn-primary {
     @include button-styles;

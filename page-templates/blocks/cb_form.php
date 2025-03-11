@@ -1,6 +1,6 @@
 <section class="form pt-5 pb-5">
     <div class="container-xl">
-    <div class="pb-4">
+    <div class="pb-2">
     <?php
         $wysiwyg_content = get_field('intro');
 

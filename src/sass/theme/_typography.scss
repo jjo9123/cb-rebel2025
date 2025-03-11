@@ -42,6 +42,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4  {
 }
 h1, .h1 {
     font-weight: var(--fw-300);
+    text-transform: uppercase;
 }
 h2, .h2, h3, .h3, h4, .h4 {
     font-weight: var(--fw-300);
@@ -58,7 +59,7 @@ h2, .h2 {
     font-size: var(--fs-600);
     line-height: var(--lh-500);
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 h3, .h3 {
     font-size: var(--fs-600);

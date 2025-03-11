@@ -8,25 +8,27 @@ $hero_slides = get_field('feat_slides'); // Repeater field containing cloned Her
         <?php if ($hero_slides): ?>
             <?php foreach ($hero_slides as $index => $slide): ?>
                 <div class="feat-slide col-black pt-4 pb-3 mb-5" style="background-image: url('<?= wp_get_attachment_url($slide['background']); ?>');background-position: center;">
+                <div class="hero-content"> 
                     <div class="container-xl h-100">
-                        <div class="row h-100">
-                            <div class="col-lg-10 d-flex flex-column pt-4 pt-lg-0 align-items-center align-items-md-start justify-content-start justify-content-md-center">
+                                <div class="row h-100">
+                            <div class="col-lg-12 d-flex flex-column pt-4 pt-lg-0 align-items-md-start justify-content-start justify-content-md-center">
                                                               
-                                <h2 data-aos="fade-right" class="text-center text-md-start"><?= $slide['title'] ?></h2>
+                                <h2 data-aos="fade-right" class="text-md-start"><?= $slide['title'] ?></h2>
                                 
                                 <?php if (!empty($slide['content'])): ?>
-                                    <div class="fs-300 fw-600" data-aos="fade-right" data-aos-delay="100"><?= $slide['content'] ?></div>
+                                    <div class="fs-300 fw-600 hero-intro" data-aos="fade-right" data-aos-delay="100"><?= $slide['content'] ?></div>
                                 <?php endif; ?>
                                 
                     
                                 <?php if (!empty($slide['cta'])): ?>
                                     
-                                    <a class="btn btn-primary mt-4 align-self-center align-self-md-start" href="<?=$slide['cta']['url']?>" target="<?=$slide['cta']['target']?>"><?=$slide['cta']['title']?>
+                                    <a class="btn btn-primary mt-4 align-self-md-start" href="<?=$slide['cta']['url']?>" target="<?=$slide['cta']['target']?>"><?=$slide['cta']['title']?>
                                     <span class="arrow-circle"></span>
                                     </a>
                                 <?php endif; ?>
                             </div>
                         </div>
+                                </div>
                     </div>
                 </div>
             <?php endforeach; ?>

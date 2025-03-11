@@ -5,9 +5,13 @@ footer {
     font-size: var(--fs-350);
     background-repeat: no-repeat;
     background-size: cover;
+    .footer {
+        min-height: 300px;
+    }
     .menu {
         list-style: none;
         padding-inline-start: 0;
+        text-transform: uppercase;
     
         ul {
             list-style: none;

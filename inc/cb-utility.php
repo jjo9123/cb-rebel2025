@@ -71,7 +71,7 @@ add_shortcode('social_in_icon', function () {
  
      // Check if the URL exists
      if ($linkedin_url) {
-         return '<a href="' . esc_url($linkedin_url) . '" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>';
+         return '<a href="' . esc_url($linkedin_url) . '" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>';
      }
  
      // Return nothing if no URL is set
@@ -494,10 +494,16 @@ add_filter('gform_submit_button', function ($button, $form) {
 
 function custom_gutenberg_button_render($block_content, $block) {
     if ($block['blockName'] === 'core/button') {
-        // Extract attributes
-        $cta_url = esc_url($block['attrs']['url'] ?? '#');
-        $cta_target = isset($block['attrs']['target']) ? ' target="_blank"' : '';
-        $cta_title = esc_html($block['attrs']['text'] ?? 'Find out more');
+        // Extract URL from innerHTML since attrs is empty
+        preg_match('/href=["\'](.*?)["\']/', $block['innerHTML'], $matches);
+        $cta_url = !empty($matches[1]) ? esc_url($matches[1]) : '#';
+
+        // Set target attribute if needed
+        $cta_target = (strpos($block['innerHTML'], 'target="_blank"') !== false) ? ' target="_blank"' : '';
+
+        // Extract button text
+        preg_match('/<a.*?>(.*?)<\/a>/', $block['innerHTML'], $text_matches);
+        $cta_title = !empty($text_matches[1]) ? strip_tags($text_matches[1]) : 'Find out more';
 
         // Check for additional classes from Gutenberg
         $extra_classes = isset($block['attrs']['className']) ? esc_attr($block['attrs']['className']) : '';
@@ -518,6 +524,5 @@ function custom_gutenberg_button_render($block_content, $block) {
 }
 
 add_filter('render_block', 'custom_gutenberg_button_render', 10, 2);
-
 
 ?>

@@ -1,9 +1,9 @@
 .boxes {
-    width: calc(100% - 10%);
+    width: calc(100% - 17%);
     margin: auto;
     padding-top: 60px;
     .container {
-        max-width: 1200px;
+        
         margin: auto;
     }
     .row {
@@ -12,11 +12,13 @@
         justify-content: space-between;
     }
     .acf-boxes-container {
-        max-width: 1200px;
+        padding-left: 0;
+        padding-right: 0;
         margin: auto;
     }
     .acf-box-title h4 {
         font-weight: var(--fw-900);
+        text-transform: uppercase;
     }
     
     .acf-boxes-group {
@@ -26,9 +28,9 @@
     
     .acf-boxes-row {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
         gap: 10px;
         width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
     }
     
     .acf-box {
@@ -37,7 +39,7 @@
         padding: 20px;
         text-align: center;
         cursor: pointer;
-        transition: background-color 0.3s ease-in-out;
+        transition: background-color 0.8s ease-in-out;
         z-index: 0;
         min-height: 150px;
     }
@@ -68,7 +70,7 @@
         z-index: -1;
     }
     .acf-box:hover::before {
-        background-color: var(--col-white);
+        background-color: var(--col-highlight);
         opacity: 0.7;
     }
     
@@ -79,37 +81,27 @@
     }
     
     .acf-hover-content-row {
-        position: relative;
-        left: 0;
         width: 100%;
+        max-height: 0;
         opacity: 0;
         visibility: hidden;
-        background-color: rgba(255, 255, 255, 0.6);
+        overflow: hidden; /* Prevents content overflow */
+        background-color: rgba(228, 67, 152, 0.6);
         color: var(--col-white);
-        padding: 20px;
+        padding: 0px 20px; /* Start with no padding */
         text-align: left;
-        transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
-        z-index: 10;
-    }
-    
-    /* Hide fully after fade-out */
-    .acf-hover-content-row:not(.active) {
-        display: none;
+        transition: max-height 0.8s ease-in-out, opacity 1s ease-in-out, padding 0.8s ease-in-out, visibility 0s linear 1s;
     }
     
     .acf-hover-content-row.active {
-        display: block;
         opacity: 1;
         visibility: visible;
-        position: relative;
-        background-color: rgba(255, 255, 255, 0.5);
+        padding: 20px!important;
+        max-height: 1000px; /* Ensure enough height for all content */
+        overflow: hidden; /* Keeps animation smooth */
+        background-color: rgba(228, 67, 152, 0.5);
     }
     
-    .acf-box:hover ~ .acf-hover-content-row {
-        display: block;
-        opacity: 1;
-        visibility: visible;
-    }
 }
 
 @media (max-width: 768px) {

@@ -31,9 +31,25 @@ main {
     background: linear-gradient(45deg, #E44398, #454495);
 
 }
+.gradient-3 {
+    background: linear-gradient(220deg, #584496 0%, #d14398 100%);
+}
 .main
 .container-xl .container-xl {
     padding-inline: 0;
+}
+.gform-theme--framework .gform_validation_errors .gform_submission_error,
+.gform-theme--framework .gform_validation_errors ol a, 
+.gform-theme--framework .gform_validation_errors ol li,
+.gform-theme--framework .gform_validation_errors .gform-icon {
+    color: var(--col-highlight)!important;
+    font-weight: var(--fw-900)!important;
+}
+.gfield_required.gfield_required_text, .gfield_required.gfield_required_asterisk {
+    color: var(--col-white)!important;
+}
+.gform-theme--framework .gform_validation_errors {
+    border-color: var(--col-highlight)!important;
 }
 
 a {
@@ -149,20 +165,27 @@ for (; i < all.length; i++) {
 
 //offset first <section> in main to offset nav 
 main > section:first-of-type {
-    padding-top: 160px!important;
+    padding-top: 220px!important;
+}
+main.blog {
+    padding-top: 100px!important;
 }
 .replace-text {
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 200px;
+    /*display: flex;
+    flex-wrap: wrap;*/
+    display: inline-flex; /* Ensures inline behavior while keeping flexbox alignment */
+    flex-wrap: nowrap; /* Prevents wrapping inside the span */
+    white-space: nowrap;
+    font-size: 130px;
     font-weight: var(--fw-900);
     align-items: center; // Ensures all elements inside align properly
     color: var(--col-highlight);
+    text-transform: uppercase;
   
     span {
       i {
         position: relative;
-        padding-left: 3rem;
+        padding-left: 1.7rem;
         display: inline-block;
         line-height: 1; // Prevents unnecessary extra spacing
   
@@ -173,15 +196,15 @@ main > section:first-of-type {
   
         &::before {
           position: absolute;
-          width: 0.9em; // Match the text size dynamically
-          height: 0.9em; // Keep proportions
+          width: 0.88em; // Match the text size dynamically
+          height: 0.88em; // Keep proportions
           background-image: url(../img/R-word.svg);
           content: "";
           background-repeat: no-repeat;
           background-position: center center;
           background-size: contain; // Ensures it scales properly
           left: 0;
-          top: 50%; // Centers vertically
+          top: 52%; // Centers vertically
           transform: translateY(-50%) scale(0.9); // Fine-tune size
         }
       }
@@ -238,6 +261,99 @@ main > section:first-of-type {
         }
       }
 }
+@media (max-width: 768px) {
+    
+    .hero-content div.fs-300 {
+        font-size: var(--fs-200)!important;
+    }
+    .blog .hero .h1 span, .blog .hero h1 span, 
+    .hero-content h1 strong, .hero-content h2 strong {
+        font-size: 60px!important;
+    }
+    .blog .hero .h1 span i, .blog .hero h1 span i {
+        padding-left: 0.8rem!important;
+    }
+    .replace-text {
+        font-size: 60px!important;
+        align-items: center; // Ensures all elements inside align properly
+        color: var(--col-highlight);
+      
+        span {
+          i {
+            position: relative;
+            padding-left: 0.8rem!important;
+            display: inline-block;
+            line-height: 1; // Prevents unnecessary extra spacing
+      
+            strong {
+              opacity: 0;
+              pointer-events: none;
+            }
+      
+            &::before {
+              position: absolute;
+              width: 0.9em; // Match the text size dynamically
+              height: 0.9em; // Keep proportions
+              background-image: url(../img/R-word.svg);
+              content: "";
+              background-repeat: no-repeat;
+              background-position: center center;
+              background-size: contain; // Ensures it scales properly
+              left: 0;
+              top: 50%; // Centers vertically
+              transform: translateY(-50%) scale(0.9); // Fine-tune size
+            }
+          }
+        }
+      }
+      main > section:first-of-type {
+        padding-top: 120px!important;
+    }
+    .step-cols, .no-hover-boxes, .feat, .hero-content, .quiz-intro,
+    .boxes-detail, .boxes, .issue-cols, .boxes.staff, .wp-text-block {
+        width: calc(100% - 5%)!important;
+    }
+
+}
+@media (max-width: 575px) { 
+    .blog .hero .h1 span, .blog .hero h1 span, 
+    .hero-content h1 strong, .hero-content h2 strong,
+    .hero-content h2, .hero-content h1, .single-post .blog__title {
+        font-size: 40px!important;
+    }
+    .slick-prev, .slick-next {
+        display: none !important; /* Hides arrows */
+    }
+    .replace-text {     
+        font-size: 50px!important; 
+        span {
+          i {
+            padding-left: .9rem!important;
+          }
+        }
+    }
+    .wp-block-columns.w-75 {
+        width: 100%!important;
+    }
+    .feat-slide h2 > br {
+        display: none;
+    }
+    .feat-slide h2 {
+        font-size: 35px!important;
+    }
+    .feat-slide .replace-text span i {
+        padding-left: .5rem!important;
+    }
+    .feat-slide .replace-text {
+        font-size: 40px!important;
+    }
+    .single-post h4.wp-block-heading {
+        font-size: 25px!important;
+    }
+    h2, h4.d-lg-none {
+        font-size: 30px;
+    }
+}
   
 /* Custom Slick Arrow Styles */
 .slick-prev, .slick-next {
@@ -260,9 +376,13 @@ main > section:first-of-type {
 }
 .slick-next:focus, .slick-next:hover, .slick-prev:focus, .slick-prev:hover {
     background-color: transparent !important;
-    background-image: inherit !important; /* Preserve the background image */
 }
-
+.slick-next:focus, .slick-next:hover {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" fill="%23fff" data-name="3-Arrow Right"/></svg>');
+}
+.slick-prev:focus, .slick-prev:hover {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M32 15H3.41l8.29-8.29-1.41-1.42-10 10a1 1 0 0 0 0 1.41l10 10 1.41-1.41L3.41 17H32z" fill="%23fff" data-name="4-Arrow Left"/></svg>');
+}
 
 /* Left Arrow (Previous) */
 .slick-prev {
@@ -339,6 +459,52 @@ main > section:first-of-type {
 .wp-text-block {
     width: calc(100% - 17%);
     margin: auto;
+    ol {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Max 4 columns */
+        gap: 20px;
+        list-style: none; /* Remove default list numbers */
+        padding: 0;
+        counter-reset: step-counter; /* Initialize custom counter */
+        
+        li {
+            display: flex; /* Add flex to align number and text side by side */
+            gap: 15px; /* Add space between the number and text */
+            background: var(--col-highlight);
+            min-height: 100px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            counter-increment: step-counter; /* Increment custom counter */
+            align-items: flex-start;
+    
+            &::before {
+                content: counter(step-counter);
+                
+                background: var(--col-dark);
+                color: var(--col-highlight);
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                flex-shrink: 0; /* Prevent shrinking */
+                font-weight: var(--fw-900);
+                transition: transform .3s ease, background-color .3s ease;
+                content: counter(step-counter);
+                background: var(--col-dark);
+                color: var(--col-highlight);
+                width: 50px;
+                height: 50px;
+                line-height: 60px;
+                text-align: center;
+                border-radius: 50%;
+                margin-right: 15px;
+                transition: transform .3sease, background-color .3sease;
+                flex-shrink: 0;
+                font-size: 4rem;
+                overflow: hidden;
+                font-weight: var(--fw-900);
+            }
+        }
+    }
 }
 .wp-text-block.w-bgimg {
     /*background-image: url(../img/bg-r.svg);

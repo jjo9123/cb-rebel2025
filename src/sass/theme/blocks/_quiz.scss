@@ -114,6 +114,8 @@
     font-size: 1.5rem;
     font-weight: 700;
     text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 5px;
     color: var(--col-highlight);
 }
 
@@ -133,5 +135,26 @@
         color: var(--col-white);
         font-weight: var(--fw-900);
         font-size: var(--fs-200);
+    }
+    .gform-theme.gform-theme--framework.gform_wrapper .button {
+        width: 100%;
+        background-color: var(--col-white)!important;
+        border: none;
+        padding-block: 1rem;
+        border-radius: 0 0 var(--pad) var(--pad);
+        font-size: 1.5rem!important;
+        font-weight: var(--fw-900)!important;
+        text-transform: uppercase;
+        text-decoration: underline;
+        text-underline-offset: 5px;
+        color: var(--col-highlight)!important;
+        margin-top: 30px;
+        margin-bottom: -27px;
+        width: calc(102% + 3* 28px) !important;
+        margin-left: -27px;
+        margin-right: -27px;
+    }
+    .gform-theme--foundation .gform_fields {
+        row-gap: 25px;
     }
 }

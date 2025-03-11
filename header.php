@@ -100,33 +100,49 @@ if (get_field('bing_site_verification', 'options')) {
 do_action('wp_body_open');
 ?>
     <header class="navholder" id="navholder">
-        <div id="wrapper-navbar" class="fixed-top">
-            <nav id="navbar" class="navbar navbar-expand-lg" aria-labelledby="main-nav-label">
-                <div class="container-xl">
-                    <a href="/"><img class="header__logo" src="<?=get_stylesheet_directory_uri()?>/img/gradient-logo.svg" alt="Home" width="317" height="93"></a>
-                    <button class="navbar-toggler input-button" id="navToggle" data-bs-toggle="collapse"
-                        data-bs-target=".navbars" type="button" aria-label="Navigation"><i
-                            class="fa fa-navicon"></i></button>
+    <div id="wrapper-navbar" class="fixed-top">
+        <nav id="navbar" class="navbar navbar-expand-lg" aria-labelledby="main-nav-label">
+            <div class="container-xl">
+                <!-- Logo -->
+                <a href="/">
+                    <img class="header__logo" src="<?= get_stylesheet_directory_uri() ?>/img/gradient-logo.svg" alt="Home" width="317" height="93">
+                </a>
+
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler input-button" id="navToggle" data-bs-toggle="collapse" data-bs-target="#primaryNav" type="button" aria-label="Navigation">
+                    <i class="fa fa-navicon"></i>
+                </button>
+
+                <!-- Navigation Menu -->
+                <div class="collapse navbar-collapse navbars" id="primaryNav">
                     <?php
-wp_nav_menu(
-    array(
-                                'theme_location'  => 'primary_nav',
-                                'container_class' => 'collapse navbar-collapse navbars',
-                                'container_id'    => 'primaryNav',
-                                'menu_class'      => 'navbar-nav w-100 justify-content-end gap-2 align-items-center',
-                                'fallback_cb'     => '',
-                                'menu_id'         => 'main-menu',
-                                'depth'           => 2,
-                                'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
-                            )
-);
-?>
-                <!-- Contact Information (Phone and Email) -->
-                <div class="contact-info d-flex gap-3 align-items-center">
-                    <?= do_shortcode('[social_in_icon]') ?>
-                    <?= do_shortcode('[contact_email_icon]') ?>
+                    wp_nav_menu(
+                        array(
+                            'theme_location'  => 'primary_nav',
+                            'container'       => false,
+                            'menu_class'      => 'navbar-nav w-100 justify-content-end gap-2 align-items-center',
+                            'fallback_cb'     => '',
+                            'menu_id'         => 'main-menu',
+                            'depth'           => 2,
+                            'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
+                        )
+                    );
+                    ?>
+
+                    <!-- Contact Information (Visible only on Desktop) -->
+                    <div class="contact-info d-none d-lg-flex gap-3 align-items-center">
+                        <?= do_shortcode('[contact_email_icon]') ?>
+                        <?= do_shortcode('[social_in_icon]') ?>
+                    </div>
+
+                    <!-- Contact Information inside the Mobile Menu (Visible only on Mobile) -->
+                    <div class="mobile-contact-info d-lg-none mt-3 text-center">
+                        <hr>
+                        <p class="mb-1"><?= do_shortcode('[contact_email_icon]') ?></p>
+                        <p><?= do_shortcode('[social_in_icon]') ?></p>
+                    </div>
                 </div>
-                </div>
-            </nav>
-        </div>
-    </header>
+            </div>
+        </nav>
+    </div>
+</header>

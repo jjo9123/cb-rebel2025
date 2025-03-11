@@ -5609,4 +5609,26 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
   font-weight: 500;
 }
 
+/* Force all text to appear black in the editor */
+.editor-styles-wrapper,
+.editor-styles-wrapper * {
+  color: #000 !important; /* Black text */
+}
+
+/* Ensure links remain visible */
+.editor-styles-wrapper a {
+  color: #000 !important; /* Black links */
+  text-decoration: underline;
+}
+
+/* If background colors affect readability, reset them */
+.editor-styles-wrapper .has-background {
+  background-color: transparent !important;
+}
+
+/* If using specific text color classes (e.g., white text) */
+.editor-styles-wrapper .has-white-color {
+  color: #000 !important; /* Override white text */
+}
+
 /*# sourceMappingURL=custom-editor-style.css.map */

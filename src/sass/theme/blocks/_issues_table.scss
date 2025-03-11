@@ -1,10 +1,9 @@
 .issue-cols {
-    width: calc(100% - 10%);
+    width: calc(100% - 17%);
     margin: auto;
     color: var(--col-white);
     padding: 50px 0;
     .container {
-        max-width: 1200px;
         margin: auto;
     }
 
@@ -32,57 +31,44 @@
         left: 50%;
         transform: translateX(-0%);
     }
-    .header-title.header-2::after {
-        content: "";
-        display: block;
-        width: 300px; /* Adjust to match your image */
-        height: 80px; /* Adjust to match your image */
-        background-image: url(../img/curved-arrow.png); /* Ensure correct path */
-        background-size: contain;
-        background-repeat: no-repeat;
-        position: absolute;
-        top: 30%; /* Adjust to place it correctly */
-        left: 100%;
-        transform: translateX(-31%);
-    }
+    
 
     /* Card Styles */
     .card-box {
         position: relative;
         padding: 20px;
         text-align: left;
-        transition: transform 0.6s ease, background-color 0.6s ease;
+        transition: transform 0.6s ease, background-color 0.6s ease, opacity 0.6s ease;
     }
     .card-box.issue {
-        background: rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.7);
         .read-more {
             font-weight: var(--fw-400);
             color: var(--col-dark);
             text-transform: initial;
         }
-        &:hover {
+        /*&:hover {
             background: rgba(255, 255, 255, 0.7);
-            transition: background 0.6s ease; /* Slower transition */
-        }
+            opacity: 1;
+        }*/
     }
     .card-box.outcomes {
         background-color: var(--col-dark);
-        opacity: .5;
+        opacity: .8;
         .read-more {
             font-weight: var(--fw-400);
             color: var(--col-white);
             text-transform: initial;
         }
-        &:hover {
+        /*&:hover {
             background-color: var(--col-dark);
             opacity: .7;
-            transition: background 0.6s ease; /* Slower transition */
-        }
+        }*/
     }
 
-    .card-box:hover {
+    /*.card-box:hover {
         transform: translateY(-5px);
-    }
+    }*/
 
     /* First Two Columns Text */
     .card-text {
@@ -93,14 +79,19 @@
     }
 
     .read-more, .card-solution {
-        display: none;
+        /*display: none;*/
         margin-top: 15px;
         font-size: 1rem;
         color: var(--col-white);
+        transition: opacity 0.6s ease-in-out, visibility 0s linear 0.3s;
     }
 
-    .card-box:hover .read-more, .card-box:hover .card-solution {
-        display: block;
+    .card-box:hover .read-more, 
+    .card-box:hover .card-solution {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.6s ease-in-out, visibility 0s linear 0.3s;
+        max-height: 500px;
     }
 
     /* Third Column: Numbers and Inline Hover Solution */
@@ -121,7 +112,7 @@
         text-align: center;
         border-radius: 50%;
         margin-right: 15px;
-        transition: transform .6s ease, background-color .6s ease;
+        transition: transform 0.6s ease, background-color 0.6s ease, opacity 0.6s ease;
         flex-shrink: 0;
         overflow: hidden;
         opacity: 0.8;
@@ -132,14 +123,9 @@
         flex-grow: 1;
         color: var(--col-white);
         opacity: 0; /* Hidden by default */
-        visibility: hidden; /* Ensures no interaction when invisible */
-        transition: opacity 0.6s ease; /* Slower fade-in */
+        transition: opacity 0.6s ease-in-out;
     }
     
-    .solution-box:hover .card-solution {
-        opacity: 1; /* Show on hover */
-        visibility: visible; /* Immediately make it interactable */
-    }
     .solution-box:hover .card-number {
         opacity: 1;
         background: rgba(255,255,255,.9);
@@ -147,5 +133,29 @@
 
     .solution-text {
         display: inline;
+    }
+    .align-solutions {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .card-box, .card-number, .card-solution {
+        transition: opacity 0.6s ease-in-out, visibility 0s linear 0.6s; 
+    }
+
+    .card-box:hover .read-more, 
+    .card-box:hover .card-solution {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.6s ease-in-out, visibility 0s linear 0s; /* Remove delay when appearing */
+    }
+    /*.card-box:not(:hover) .read-more, 
+    .card-box:not(:hover) .card-solution {
+        transition: opacity 0.6s ease-in-out, visibility 0s linear 0.6s;
+    }*/
+    /* Ensures solutions stay aligned if last row has no issue/outcome */
+    @media (max-width: 768px) { /* Targets devices smaller than tablets */
+        .card-box.h-100 {
+            height: auto !important; /* Overrides h-100 */
+        }
     }
 }

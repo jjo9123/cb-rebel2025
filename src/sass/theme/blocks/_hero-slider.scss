@@ -5,10 +5,20 @@ body main>section.hero-slider {
     background-color: var(--col-black);
     min-height: 600px;
     padding-bottom: 120px!important;
-    padding-top: 150px!important;
+    padding-top: 220px!important;
     color: var(--col-white);
     margin: 0 auto;
     margin-bottom: 0;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+    }
     .hero-content {
         width: calc(100% - 17%);
         margin: auto;
@@ -16,6 +26,9 @@ body main>section.hero-slider {
     &.hero--short {
         height: auto;
         padding-bottom: 1rem;
+    }
+    .hero-intro {
+        max-width: 700px;
     }
     // background-size: min(80vw,490px) auto;
     // background-repeat: no-repeat;
@@ -26,23 +39,30 @@ body main>section.hero-slider {
     h1 {
         font-size: var(--fs-800);
         text-transform: uppercase;
+        strong {
+            font-size: 130px;
+        }
     }
     h2 {
         font-size: var(--fs-800);
         text-transform: uppercase;
+        strong {
+            font-size: 130px;
+        }
     }
     .replace-text {
-        font-size: 95px;
+        font-size: 130px;
         color: var(--col-white);
         span {
-            margin-left: 0.5rem;
+            /*margin-left: 0.5rem;*/
             i {
                 padding-left: 1.5rem;
                 &::before {
                     position: absolute;
-                    width: 0.9em; // Match the text size dynamically
-                    height: 0.9em; // Keep proportions
+                    width: 0.88em; // Match the text size dynamically
+                    height: 0.88em; // Keep proportions
                     background-image: url(../img/R-word-white.svg);
+                    top: 52%;
                 }
             }
         }

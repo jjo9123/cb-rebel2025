@@ -3,7 +3,7 @@ $columns = get_field('steps');
 ?>
 
 <section class="step-cols" style="position: relative;">
-    <div class="container py-5">
+    <div class="container-xl py-5">
         <!-- Header Row -->
         <div class="row mb-4">
             <div class="col-12 pb-2"><h2>Our Approach</h2></div>
