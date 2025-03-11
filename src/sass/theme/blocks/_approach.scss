@@ -1,5 +1,5 @@
 .step-cols {
-    width: calc(100% - 10%);
+    width: calc(100% - 17%);
     margin: auto;
     color: var(--col-white);
     padding: 50px 0;
@@ -13,8 +13,15 @@
         font-size: 2rem;
         color: var(--col-white);
     }
+
+    /* Ensure the Bootstrap row stretches */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch; /* Stretch columns equally */
+    }
+
     .col-lg-6 {
-        flex: 1 1 auto;
         display: flex;
         flex-direction: column;
     }
@@ -29,31 +36,29 @@
         padding: 20px;
         text-align: left;
         transition: background 0.3s ease-in-out;
-        flex: 1 1 auto;
-        .card-text p {
-            font-weight: var(--fw-900);
-            color: var(--col-highlight);
-            text-transform: uppercase;
-        }
-        .card-box.step:hover {
-            background: rgba(255, 255, 255, 0.7);
-        }
-        .card-number {
-            font-weight: bold;
-            background: var(--col-highlight);
-            color: rgba(255, 255, 255, .5);
-            width: 50px;
-            height: 50px;
-            line-height: 50px;
-            text-align: center;
-            border-radius: 50%;
-            margin-right: 15px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            flex-shrink: 0;
-            font-size: 4rem;
-            flex-shrink: 0;
-            overflow: hidden;
-        }
+        flex: 1; /* This ensures it stretches */
+        font-weight: var(--fw-900);
+        text-transform: uppercase;
+    }
+
+    .card-box.step:hover {
+        background: rgba(255, 255, 255, 0.7);
+    }
+
+    .card-number {
+        font-weight: bold;
+        background: var(--col-highlight);
+        color: rgba(255, 255, 255, .5);
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        border-radius: 50%;
+        margin-right: 15px;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        flex-shrink: 0;
+        font-size: 4rem;
+        overflow: hidden;
     }
 
     /* Right Column (Read More Content) */
@@ -64,6 +69,7 @@
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease, visibility 0.3s ease;
+        flex: 1; /* Ensures it takes full height */
     }
 
     .card-box.step:hover + .card-box.read-more-content,

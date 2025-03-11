@@ -1,3 +1,4 @@
+@import "blocks/hero";
 .related {
     &__card {
         text-decoration: none;
@@ -39,6 +40,19 @@
 
 
 .blog {
+    .blog__content {
+        .h1, .h2, .h3, .h4, h1, h2, h3, h4 {
+            color: var(--col-highlight);
+            font-weight: var(--fw-300);
+            text-transform: uppercase;
+
+        }
+        .wp-block-separator {
+            background-color: var(--col-highlight);
+            border-color: var(--col-highlight);
+            opacity: 1;
+        }
+    }
     &__image {
         aspect-ratio: 16 / 9;
         width: 100%;
@@ -50,6 +64,52 @@
     &__content > .container-xl {
         padding-inline: 0;
     }
+}
+.blog {
+    .blog-listing.container-xl {
+        width: calc(100% - 17%);
+        margin: auto;
+    }
+    .wp-text-block {
+        h2 {
+            color: var(--col-highlight);
+        }
+    }
+    .card {
+        border-radius: 0;
+        border-color: transparent;
+        img {
+            border-radius: 0;
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        .card-title {
+            text-transform: uppercase;
+        }
+        .card-footer {
+            background: rgba(69, 68, 149, 0.5); /* Pink with 50% opacity */
+            padding: 5px 15px;
+            color: var(--col-white); /* Ensures text color stays unchanged */
+            border-radius: 0;
+            span {
+                text-transform: uppercase;
+                font-weight: var(--fw-900);
+            }
+        }
+        
+    }
+    .hero h1 {
+        span {
+            font-size: 130px;
+        }
+        .replace-text span i {
+            position: relative;
+            padding-left: 1.6rem;
+            display: inline-block;
+            line-height: 1;
+        }
+    }   
 }
 
 .latest_news {
@@ -102,4 +162,35 @@
         width: 100%;
         transition: scale var(--transition);
     }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center; /* Centers the pagination */
+    margin-top: 20px;
+}
+
+.pagination-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination-list li {
+    margin: 0 5px; /* Adds spacing between numbers */
+}
+
+.pagination-list li a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    color: var(--col-highlight)!important;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.pagination-list li a:hover,
+.pagination-list li.active a {
+    font-weight: var(--fw-900);
 }

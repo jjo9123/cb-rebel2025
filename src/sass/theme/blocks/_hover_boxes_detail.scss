@@ -1,37 +1,46 @@
-.boxes {
-    width: calc(100% - 10%);
+.boxes-detail {
+    width: calc(100% - 17%);
     margin: auto;
     padding-top: 60px;
+
     .container {
-        max-width: 1200px;
+        
         margin: auto;
     }
+
     .row {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
     }
+
     .acf-boxes-container {
-        max-width: 1200px;
+        padding-left: 0;
+        padding-right: 0;
         margin: auto;
     }
+
     .acf-box-title h4 {
         font-weight: var(--fw-900);
+        text-transform: uppercase;
     }
-    
+
     .acf-boxes-group {
         position: relative;
+        display: flex;
+        flex-direction: column; /* Ensures rows and hover content are stacked properly */
+        gap: 0px;
         margin-bottom: 20px;
     }
-    
+
     .acf-boxes-row {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust min size */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust min size */
         gap: 10px;
         width: 100%;
         grid-auto-flow: dense;
     }
-    
+
     .acf-box {
         position: relative;
         color: var(--col-white);
@@ -39,10 +48,10 @@
         text-align: center;
         cursor: pointer;
         transition: background-color 0.3s ease-in-out;
-        z-index: 0;
+        z-index: 1;
         min-height: 150px;
     }
-    
+
     .dots {
         position: absolute;
         bottom: 10px;
@@ -51,12 +60,12 @@
         flex-direction: column;
         gap: 5px;
     }
-    
+
     .dots img {
         width: 10px;
         height: 30px;
     }
-    
+
     .acf-box::before {
         content: "";
         position: absolute;
@@ -68,62 +77,56 @@
         opacity: 0.4;
         z-index: -1;
     }
+
     .acf-box:hover::before {
-        background-color: var(--col-white);
+        background-color: var(--col-highlight);
         opacity: 0.7;
+        transition: background-color 0.15s ease-in, opacity 0.15s ease-in;
+
     }
-    
+
     .acf-box-title {
         h4 {
-        text-align: left;
-        font-size: var(--fs-200);
-        margin: 0;
+            text-align: left;
+            font-size: var(--fs-200);
+            margin: 0;
         }
         p {
             text-align: left;
-            font-size: var(--fs-150);
+            font-size: var(--fs-200);
         }
     }
-    
+
     .acf-hover-content-row {
-        position: relative;
-        left: 0;
         width: 100%;
+        max-height: 0;
         opacity: 0;
         visibility: hidden;
-        background-color: rgba(255, 255, 255, 0.6);
+        overflow: hidden; /* Prevents content overflow */
+        background-color: rgba(228, 67, 152, 0.6);
         color: var(--col-white);
-        padding: 20px;
+        padding: 0px 20px; /* Start with no padding */
         text-align: left;
-        transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
-        z-index: 10;
-    }
-    
-    /* Hide fully after fade-out */
-    .acf-hover-content-row:not(.active) {
-        display: none;
+        transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease, visibility 0s linear 0.3s;
     }
     
     .acf-hover-content-row.active {
-        display: block;
         opacity: 1;
         visibility: visible;
-        position: relative;
-        background-color: rgba(255, 255, 255, 0.5);
+        padding: 20px!important;
+        max-height: 1000px; /* Ensure enough height for all content */
+        overflow: hidden; /* Keeps animation smooth */
+        background-color: rgba(228, 67, 152, 0.5);
     }
     
-    .acf-box:hover ~ .acf-hover-content-row {
-        display: block;
-        opacity: 1;
-        visibility: visible;
-    }
 }
 
 @media (max-width: 768px) {
-    .boxes {
+    .boxes-detail {
         .acf-boxes-row {
             grid-template-columns: 1fr;
         }
+        
         .acf-hover-content-mobile {
             display: block;
             opacity: 1;
@@ -133,7 +136,7 @@
             margin-top: 10px;
             text-align: left;
         }
-    
+
         .acf-box.active .acf-hover-content-mobile {
             display: block;
         }

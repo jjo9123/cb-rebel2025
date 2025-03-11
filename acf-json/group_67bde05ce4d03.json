@@ -1,9 +1,9 @@
 {
-    "key": "group_67a0dc17373ec",
-    "title": "CB Hover Boxes",
+    "key": "group_67bde05ce4d03",
+    "title": "CB Boxes",
     "fields": [
         {
-            "key": "field_67a22a09591a0",
+            "key": "field_67bde05d04be2",
             "label": "Heading",
             "name": "heading",
             "aria-label": "",
@@ -24,7 +24,28 @@
             "append": ""
         },
         {
-            "key": "field_67a0dc1752bbd",
+            "key": "field_67bef5b185e1d",
+            "label": "Description",
+            "name": "desc",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_67bde05d04c03",
             "label": "Boxes",
             "name": "boxes",
             "aria-label": "",
@@ -46,7 +67,7 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_67a0dc42535d7",
+                    "key": "field_67bde05d0f691",
                     "label": "Title",
                     "name": "title",
                     "aria-label": "",
@@ -65,10 +86,10 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_67a0dc1752bbd"
+                    "parent_repeater": "field_67bde05d04c03"
                 },
                 {
-                    "key": "field_67a0dc175b641",
+                    "key": "field_67bde05d0f69e",
                     "label": "Content",
                     "name": "content",
                     "aria-label": "",
@@ -87,7 +108,7 @@
                     "toolbar": "basic",
                     "media_upload": 0,
                     "delay": 0,
-                    "parent_repeater": "field_67a0dc1752bbd"
+                    "parent_repeater": "field_67bde05d04c03"
                 }
             ]
         }
@@ -97,7 +118,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/cb-hover-boxes"
+                "value": "acf\/cb-boxes"
             }
         ]
     ],
@@ -110,5 +131,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1740496982
+    "modified": 1740568004
 }

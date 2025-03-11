@@ -71,7 +71,7 @@ add_shortcode('social_in_icon', function () {
  
      // Check if the URL exists
      if ($linkedin_url) {
-         return '<a href="' . esc_url($linkedin_url) . '" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>';
+         return '<a href="' . esc_url($linkedin_url) . '" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>';
      }
  
      // Return nothing if no URL is set
@@ -487,5 +487,42 @@ function replace_r_tag($atts, $content = '') {
     return $html;
 }
 add_shortcode('Replace_R', 'replace_r_tag');
+
+add_filter('gform_submit_button', function ($button, $form) {
+    return '<div class="gform-submit-wrapper">' . $button . '<span class="arrow-circle"></span></div>';
+}, 10, 2);
+
+function custom_gutenberg_button_render($block_content, $block) {
+    if ($block['blockName'] === 'core/button') {
+        // Extract URL from innerHTML since attrs is empty
+        preg_match('/href=["\'](.*?)["\']/', $block['innerHTML'], $matches);
+        $cta_url = !empty($matches[1]) ? esc_url($matches[1]) : '#';
+
+        // Set target attribute if needed
+        $cta_target = (strpos($block['innerHTML'], 'target="_blank"') !== false) ? ' target="_blank"' : '';
+
+        // Extract button text
+        preg_match('/<a.*?>(.*?)<\/a>/', $block['innerHTML'], $text_matches);
+        $cta_title = !empty($text_matches[1]) ? strip_tags($text_matches[1]) : 'Find out more';
+
+        // Check for additional classes from Gutenberg
+        $extra_classes = isset($block['attrs']['className']) ? esc_attr($block['attrs']['className']) : '';
+
+        // Always include btn-primary, and append pink-btn if it's in the extra classes
+        $button_classes = 'btn btn-primary mt-4 align-self-center align-self-md-start';
+        if (strpos($extra_classes, 'pink-btn') !== false) {
+            $button_classes .= ' pink-btn';
+        }
+
+        // Return modified button markup
+        return '<a class="' . $button_classes . '" href="' . $cta_url . '"' . $cta_target . '>'
+                . $cta_title .
+                '<span class="arrow-circle"></span></a>';
+    }
+
+    return $block_content;
+}
+
+add_filter('render_block', 'custom_gutenberg_button_render', 10, 2);
 
 ?>

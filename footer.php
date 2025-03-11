@@ -7,7 +7,7 @@ defined('ABSPATH') || exit;
 <footer>
     <div class="footer container-xl pt-5 pb-4">
         <div class="row g-4">
-            <div class="col-lg-2">
+            <div class="col-lg-6">
                 <img src="<?=get_stylesheet_directory_uri()?>/img/header-logo-white.svg"
                     class="footer__logo" alt="PerfectRebel">
             </div>
@@ -15,6 +15,10 @@ defined('ABSPATH') || exit;
         <div class="row g-4 pt-3">
             <div class="col-lg-4">
                 <?=wp_nav_menu(array('theme_location' => 'footer_menu1'))?>
+                <div class="contact-info d-flex gap-3 align-items-center">
+                    <?= do_shortcode('[contact_email_icon]') ?>
+                    <?= do_shortcode('[social_in_icon]') ?>
+                </div>
             </div>
         </div>
             <div class="col-lg-3">
@@ -29,11 +33,11 @@ defined('ABSPATH') || exit;
     <div class="colophon">
         <div class="container-xl py-2">
             <div class="d-flex gap-1 flex-wrap justify-content-between">
-                <div class="col-md-10 text-center text-md-start">
+                <div class="col-md-8 text-center text-md-start">
                     &copy; <?=date('Y')?>  PerfectRebel
                 </div>
-                <div class="col-md-2 w-100 w-md-auto d-flex align-items-center justify-content-center justify-content-md-end flex-wrap gap-1">
-                    <a href="/privacy-policy/">Privacy</a> &amp; <a href="/cookie-policy/">Cookies</a> | 
+                <div class="col-md-4 w-100 w-md-auto d-flex align-items-center justify-content-md-end flex-wrap gap-1">
+                    <a href="/privacy-policy/">Privacy</a> &amp; <a href="/terms-conditions/">Terms & Conditions</a> | 
                     <a href="https://www.chillibyte.co.uk/" rel="nofollow noopener" target="_blank" class="cb"
                         title="Digital Marketing by Chillibyte"></a>
                 </div>

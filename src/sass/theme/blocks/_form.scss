@@ -1,0 +1,38 @@
+.form .container-xl {
+    border-radius: var(--pad);
+    background: rgba(69, 68, 149, 0.5);
+    padding: 50px 40px;
+    color: var(--col-white);
+    .gform-theme--framework .gfield_list_group_item:before, .gform-theme--framework .gform-field-label {
+        color: var(--col-white);
+        font-weight: var(--fw-900);
+        font-size: var(--fs-200);
+    }
+    .gform-theme--framework .gfield_description {
+        color: var(--col-white)!important;
+    }
+    .gform-theme.gform-theme--framework.gform_wrapper .button {
+        width: 100%;
+        background-color: var(--col-white)!important;
+        border: none;
+        padding-block: 1rem;
+        border-radius: 0 0 var(--pad) var(--pad);
+        font-size: 1.5rem!important;
+        font-weight: var(--fw-900)!important;
+        text-transform: uppercase;
+        color: var(--col-highlight)!important;
+        margin-top: 30px;
+        margin-bottom: -52px;
+        width: calc(102% + 3* 28px) !important;
+        margin-left: -40px;
+        margin-right: -40px;
+    }
+    .gform-theme--foundation .gform_fields {
+        row-gap: 25px!important;
+    }
+}
+.quiz-intro {
+    color: var(--col-white);
+    width: calc(100% - 17%);
+    margin: auto;
+}

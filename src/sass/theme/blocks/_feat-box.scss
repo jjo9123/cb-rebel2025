@@ -1,12 +1,66 @@
 .feature-wrapper {
-    width: calc(100% - 10%);
     margin: auto;
-    padding: 60px 0;
+    /*padding: 60px 0;*/
     .feature {
-        background-color: var(--col-black);
+        /*background-color: var(--col-black);*/
+        background-repeat: no-repeat;
+        background-size: cover;
         color: var(--col-white);
-        border-radius: 30px;
-        padding: 70px 50px;
+        padding: 70px 0;
+        .feat {
+            width: calc(100% - 17%);
+            margin: auto;
+        }
+        h1, h2, h3, h4, h5, h6, p {
+            max-width: 900px;
+        }
+        ol {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Max 4 columns */
+            gap: 20px;
+            list-style: none; /* Remove default list numbers */
+            padding: 0;
+            counter-reset: step-counter; /* Initialize custom counter */
+            
+            li {
+                display: flex; /* Add flex to align number and text side by side */
+                gap: 5px; /* Add space between the number and text */
+                background: var(--col-white);
+                color: var(--col-highlight);
+                min-height: 100px;
+                padding: 20px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                counter-increment: step-counter; /* Increment custom counter */
+                align-items: flex-start;
+        
+                &::before {
+                    content: counter(step-counter);
+                    
+                    background: var(--col-dark);
+                    color: var(--col-highlight);
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    flex-shrink: 0; /* Prevent shrinking */
+                    font-weight: var(--fw-900);
+                    transition: transform .3s ease, background-color .3s ease;
+                    content: counter(step-counter);
+                    background: var(--col-dark);
+                    color: var(--col-highlight);
+                    width: 50px;
+                    height: 50px;
+                    line-height: 60px;
+                    text-align: center;
+                    border-radius: 50%;
+                    margin-right: 15px;
+                    transition: transform .3sease, background-color .3sease;
+                    flex-shrink: 0;
+                    font-size: 4rem;
+                    overflow: hidden;
+                    font-weight: var(--fw-900);
+                }
+            }
+        }
     }
     h1, h2, h3, h4, h5 {
         padding-bottom: 20px;
